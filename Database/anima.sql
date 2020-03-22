@@ -1,0 +1,226 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 16, 2020 at 04:07 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `anima`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `index_nilai`
+--
+
+CREATE TABLE `index_nilai` (
+  `kode_mk` varchar(8) DEFAULT NULL,
+  `A` int(2) DEFAULT NULL,
+  `AB` int(2) DEFAULT NULL,
+  `B` int(2) DEFAULT NULL,
+  `BC` int(2) DEFAULT NULL,
+  `C` int(2) DEFAULT NULL,
+  `D` int(2) DEFAULT NULL,
+  `E` int(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `index_nilai`
+--
+
+INSERT INTO `index_nilai` (`kode_mk`, `A`, `AB`, `B`, `BC`, `C`, `D`, `E`) VALUES
+('IF3201', 85, 0, 78, 0, 70, 65, 55),
+('IF3001', 0, 0, 0, 0, 0, 0, 0),
+('IF3042', 0, 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `komponen`
+--
+
+CREATE TABLE `komponen` (
+  `kode_mk` varchar(8) NOT NULL,
+  `tugas` int(3) DEFAULT NULL,
+  `kuis` int(3) DEFAULT NULL,
+  `tubes` int(3) DEFAULT NULL,
+  `praktikum` int(3) DEFAULT NULL,
+  `tambahan` int(3) DEFAULT NULL,
+  `uts` int(3) DEFAULT NULL,
+  `uas` int(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `komponen`
+--
+
+INSERT INTO `komponen` (`kode_mk`, `tugas`, `kuis`, `tubes`, `praktikum`, `tambahan`, `uts`, `uas`) VALUES
+('IF3201', 10, 10, 10, 10, 0, 30, 30),
+('IF3001', 0, 0, 0, 0, 0, 0, 0),
+('IF3042', 0, 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `konversi_na`
+--
+
+CREATE TABLE `konversi_na` (
+  `nim` varchar(10) NOT NULL,
+  `kode_mk` varchar(8) NOT NULL,
+  `na` float NOT NULL,
+  `grade` varchar(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mahasiswa`
+--
+
+CREATE TABLE `mahasiswa` (
+  `nim` varchar(10) NOT NULL,
+  `nama` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`nim`, `nama`) VALUES
+('14117137', 'Bagus Budi'),
+('14117138', 'Muhammad Muttaqin'),
+('14117145', 'Muhammad Telaga');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `matakuliah`
+--
+
+CREATE TABLE `matakuliah` (
+  `kode_mk` varchar(8) NOT NULL,
+  `kode_kls` varchar(4) NOT NULL,
+  `nama_mk` varchar(50) NOT NULL,
+  `sks` int(2) NOT NULL,
+  `hari` varchar(6) NOT NULL,
+  `waktu` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `matakuliah`
+--
+
+INSERT INTO `matakuliah` (`kode_mk`, `kode_kls`, `nama_mk`, `sks`, `hari`, `waktu`) VALUES
+('IF3001', 'RC', 'Kapita Selekta Informatika', 3, 'Jumat', '09:00:00'),
+('IF3042', 'R', 'Data Mining', 3, 'Senin', '09:00:00'),
+('IF3201', 'RD', 'Kewirausahaan', 3, 'Rabu', '08:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nilai`
+--
+
+CREATE TABLE `nilai` (
+  `nim` varchar(10) NOT NULL,
+  `kode_mk` varchar(8) NOT NULL,
+  `tugas` float DEFAULT NULL,
+  `kuis` float DEFAULT NULL,
+  `tubes` float DEFAULT NULL,
+  `praktikum` float DEFAULT NULL,
+  `tambahan` float DEFAULT NULL,
+  `uts` float DEFAULT NULL,
+  `uas` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `nilai`
+--
+
+INSERT INTO `nilai` (`nim`, `kode_mk`, `tugas`, `kuis`, `tubes`, `praktikum`, `tambahan`, `uts`, `uas`) VALUES
+('14117137', 'IF3001', 86.5, 0, 0, 100, 0, 0, 80),
+('14117137', 'IF3042', 86.5, 0, 0, 100, 0, 0, 0),
+('14117138', 'IF3042', 90, 0, 0, 0, 0, 0, 0),
+('14117138', 'IF3201', 90, 0, 0, 0, 0, 0, 0),
+('14117145', 'IF3001', 90, 0, 0, 0, 0, 0, 0),
+('14117145', 'IF3042', 90, 0, 0, 0, 0, 0, 0);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `index_nilai`
+--
+ALTER TABLE `index_nilai`
+  ADD KEY `kode_mk` (`kode_mk`);
+
+--
+-- Indexes for table `komponen`
+--
+ALTER TABLE `komponen`
+  ADD KEY `kode_mk` (`kode_mk`);
+
+--
+-- Indexes for table `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  ADD PRIMARY KEY (`nim`);
+
+--
+-- Indexes for table `matakuliah`
+--
+ALTER TABLE `matakuliah`
+  ADD PRIMARY KEY (`kode_mk`);
+
+--
+-- Indexes for table `nilai`
+--
+ALTER TABLE `nilai`
+  ADD PRIMARY KEY (`nim`,`kode_mk`),
+  ADD KEY `kode_mk` (`kode_mk`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `index_nilai`
+--
+ALTER TABLE `index_nilai`
+  ADD CONSTRAINT `index_nilai_ibfk_1` FOREIGN KEY (`kode_mk`) REFERENCES `matakuliah` (`kode_mk`),
+  ADD CONSTRAINT `index_nilai_ibfk_2` FOREIGN KEY (`kode_mk`) REFERENCES `matakuliah` (`kode_mk`);
+
+--
+-- Constraints for table `komponen`
+--
+ALTER TABLE `komponen`
+  ADD CONSTRAINT `komponen_ibfk_1` FOREIGN KEY (`kode_mk`) REFERENCES `matakuliah` (`kode_mk`);
+
+--
+-- Constraints for table `nilai`
+--
+ALTER TABLE `nilai`
+  ADD CONSTRAINT `nilai_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `mahasiswa` (`nim`),
+  ADD CONSTRAINT `nilai_ibfk_2` FOREIGN KEY (`kode_mk`) REFERENCES `matakuliah` (`kode_mk`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
