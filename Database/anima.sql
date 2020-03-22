@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2020 at 04:07 AM
+-- Generation Time: Mar 22, 2020 at 01:50 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -46,7 +46,10 @@ CREATE TABLE `index_nilai` (
 INSERT INTO `index_nilai` (`kode_mk`, `A`, `AB`, `B`, `BC`, `C`, `D`, `E`) VALUES
 ('IF3201', 85, 0, 78, 0, 70, 65, 55),
 ('IF3001', 0, 0, 0, 0, 0, 0, 0),
-('IF3042', 0, 0, 0, 0, 0, 0, 0);
+('IF3042', 0, 0, 0, 0, 0, 0, 0),
+('IF4201', 0, 0, 0, 0, 0, 0, 0),
+('IF3022', 0, 0, 0, 0, 0, 0, 0),
+('IF3251', 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -72,7 +75,10 @@ CREATE TABLE `komponen` (
 INSERT INTO `komponen` (`kode_mk`, `tugas`, `kuis`, `tubes`, `praktikum`, `tambahan`, `uts`, `uas`) VALUES
 ('IF3201', 10, 10, 10, 10, 0, 30, 30),
 ('IF3001', 0, 0, 0, 0, 0, 0, 0),
-('IF3042', 0, 0, 0, 0, 0, 0, 0);
+('IF3042', 0, 0, 0, 0, 0, 0, 0),
+('IF4201', 0, 0, 0, 0, 0, 0, 0),
+('IF3022', 0, 0, 0, 0, 0, 0, 0),
+('IF3251', 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -103,7 +109,7 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `nama`) VALUES
-('14117137', 'Bagus Budi'),
+('14117137', 'Bagus Budi Setiawan'),
 ('14117138', 'Muhammad Muttaqin'),
 ('14117145', 'Muhammad Telaga');
 
@@ -116,6 +122,7 @@ INSERT INTO `mahasiswa` (`nim`, `nama`) VALUES
 CREATE TABLE `matakuliah` (
   `kode_mk` varchar(8) NOT NULL,
   `kode_kls` varchar(4) NOT NULL,
+  `ruang` varchar(6) DEFAULT NULL,
   `nama_mk` varchar(50) NOT NULL,
   `sks` int(2) NOT NULL,
   `hari` varchar(6) NOT NULL,
@@ -126,10 +133,13 @@ CREATE TABLE `matakuliah` (
 -- Dumping data for table `matakuliah`
 --
 
-INSERT INTO `matakuliah` (`kode_mk`, `kode_kls`, `nama_mk`, `sks`, `hari`, `waktu`) VALUES
-('IF3001', 'RC', 'Kapita Selekta Informatika', 3, 'Jumat', '09:00:00'),
-('IF3042', 'R', 'Data Mining', 3, 'Senin', '09:00:00'),
-('IF3201', 'RD', 'Kewirausahaan', 3, 'Rabu', '08:00:00');
+INSERT INTO `matakuliah` (`kode_mk`, `kode_kls`, `ruang`, `nama_mk`, `sks`, `hari`, `waktu`) VALUES
+('IF3001', 'RC', 'GK107', 'Kapita Selekta Informatika', 3, 'Jumat', '09:00:00'),
+('IF3022', 'R', 'D307', 'Pervasive Computing', 3, 'Jumat', '13:00:00'),
+('IF3042', 'R', 'GK107', 'Data Mining', 3, 'Senin', '09:00:00'),
+('IF3201', 'RD', 'GK107', 'Kewirausahaan', 3, 'Rabu', '08:00:00'),
+('IF3251', 'RC', 'F008', 'Proyek Perangkat Lunak', 4, 'Selasa', '13:00:00'),
+('IF4201', 'RB', 'GK107', 'Socio Informatika dan Etika Profesi', 2, 'Senin', '13:00:00');
 
 -- --------------------------------------------------------
 
@@ -154,12 +164,13 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`nim`, `kode_mk`, `tugas`, `kuis`, `tubes`, `praktikum`, `tambahan`, `uts`, `uas`) VALUES
-('14117137', 'IF3001', 86.5, 0, 0, 100, 0, 0, 80),
+('14117137', 'IF3001', 89, 0, 0, 100, 0, 0, 80),
 ('14117137', 'IF3042', 86.5, 0, 0, 100, 0, 0, 0),
 ('14117138', 'IF3042', 90, 0, 0, 0, 0, 0, 0),
 ('14117138', 'IF3201', 90, 0, 0, 0, 0, 0, 0),
-('14117145', 'IF3001', 90, 0, 0, 0, 0, 0, 0),
-('14117145', 'IF3042', 90, 0, 0, 0, 0, 0, 0);
+('14117145', 'IF3001', 90, 80, 0, 0, 0, 0, 87),
+('14117145', 'IF3042', 90, 60, 0, 0, 0, 0, 0),
+('14117145', 'IF3201', 0, 0, 0, 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -175,6 +186,13 @@ ALTER TABLE `index_nilai`
 -- Indexes for table `komponen`
 --
 ALTER TABLE `komponen`
+  ADD KEY `kode_mk` (`kode_mk`);
+
+--
+-- Indexes for table `konversi_na`
+--
+ALTER TABLE `konversi_na`
+  ADD KEY `nim` (`nim`),
   ADD KEY `kode_mk` (`kode_mk`);
 
 --
@@ -212,6 +230,13 @@ ALTER TABLE `index_nilai`
 --
 ALTER TABLE `komponen`
   ADD CONSTRAINT `komponen_ibfk_1` FOREIGN KEY (`kode_mk`) REFERENCES `matakuliah` (`kode_mk`);
+
+--
+-- Constraints for table `konversi_na`
+--
+ALTER TABLE `konversi_na`
+  ADD CONSTRAINT `konversi_na_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `mahasiswa` (`nim`),
+  ADD CONSTRAINT `konversi_na_ibfk_2` FOREIGN KEY (`kode_mk`) REFERENCES `matakuliah` (`kode_mk`);
 
 --
 -- Constraints for table `nilai`
