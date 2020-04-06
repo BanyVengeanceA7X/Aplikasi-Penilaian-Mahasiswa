@@ -12,6 +12,7 @@ import InputMahasiswa.TableMhs;
 import InputMahasiswa.Tablemhssemua;
 import InputNilai.DaftarNilai;
 import InputNilai.Nilai;
+import InputNilai.TableNilai;
 import Inputmatkul.TableMatkul;
 import databasekonek.koneksi;
 import jadwalmatkul.jadwalmatkul;
@@ -98,6 +99,7 @@ public class app_upt extends javax.swing.JFrame {
         initComponents();
          setModel();
         pilihmatkul.setModel(model1);
+        pilihmatkul1.setModel(model1);
     }
 
     /**
@@ -308,6 +310,94 @@ public class app_upt extends javax.swing.JFrame {
         input_koderuang = new javax.swing.JTextField();
         field_kdmk5 = new javax.swing.JLabel();
         lbl_err2 = new javax.swing.JPanel();
+        laman_edit = new javax.swing.JPanel();
+        update_kodemk1 = new javax.swing.JTextField();
+        update_kodekelas1 = new javax.swing.JTextField();
+        update_namamk1 = new javax.swing.JTextField();
+        kode_mk5 = new javax.swing.JLabel();
+        field_kdmk6 = new javax.swing.JLabel();
+        kd_kelas6 = new javax.swing.JLabel();
+        field_kdkelas6 = new javax.swing.JLabel();
+        nama_mk1 = new javax.swing.JLabel();
+        field_namamk1 = new javax.swing.JLabel();
+        sks_mk1 = new javax.swing.JLabel();
+        btupdate_matkul1 = new javax.swing.JLabel();
+        btcupdate_matkul1 = new javax.swing.JLabel();
+        hari_mk1 = new javax.swing.JLabel();
+        index_nilai1 = new javax.swing.JLabel();
+        komponen_mk1 = new javax.swing.JLabel();
+        text_uts1 = new javax.swing.JLabel();
+        text_uas1 = new javax.swing.JLabel();
+        text_quiz1 = new javax.swing.JLabel();
+        text_tugas1 = new javax.swing.JLabel();
+        text_tubes1 = new javax.swing.JLabel();
+        text_prak1 = new javax.swing.JLabel();
+        text_tambahan1 = new javax.swing.JLabel();
+        update_nuts1 = new javax.swing.JTextField();
+        update_nuas1 = new javax.swing.JTextField();
+        update_nquiz1 = new javax.swing.JTextField();
+        update_ntugas1 = new javax.swing.JTextField();
+        update_ntubes1 = new javax.swing.JTextField();
+        update_nprak1 = new javax.swing.JTextField();
+        update_ntambahan1 = new javax.swing.JTextField();
+        field_uts1 = new javax.swing.JLabel();
+        field_uas1 = new javax.swing.JLabel();
+        field_quiz1 = new javax.swing.JLabel();
+        field_tugas1 = new javax.swing.JLabel();
+        field_tubes1 = new javax.swing.JLabel();
+        field_praktikum1 = new javax.swing.JLabel();
+        field_tambahan1 = new javax.swing.JLabel();
+        persen15 = new javax.swing.JLabel();
+        persen16 = new javax.swing.JLabel();
+        persen17 = new javax.swing.JLabel();
+        persen18 = new javax.swing.JLabel();
+        persen19 = new javax.swing.JLabel();
+        persen20 = new javax.swing.JLabel();
+        persen21 = new javax.swing.JLabel();
+        line1 = new javax.swing.JLabel();
+        update_indexA1 = new javax.swing.JTextField();
+        update_indexAB1 = new javax.swing.JTextField();
+        update_indexB1 = new javax.swing.JTextField();
+        update_indexBC1 = new javax.swing.JTextField();
+        update_indexC1 = new javax.swing.JTextField();
+        index_A1 = new javax.swing.JLabel();
+        index_B3 = new javax.swing.JLabel();
+        index_C1 = new javax.swing.JLabel();
+        index_D1 = new javax.swing.JLabel();
+        index_E1 = new javax.swing.JLabel();
+        field_index5 = new javax.swing.JLabel();
+        field_index7 = new javax.swing.JLabel();
+        field_index10 = new javax.swing.JLabel();
+        field_index11 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        waktu_mk8 = new javax.swing.JLabel();
+        update_waktu1 = new javax.swing.JTextField();
+        field_waktu4 = new javax.swing.JLabel();
+        index_B4 = new javax.swing.JLabel();
+        index_B5 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        field_index12 = new javax.swing.JLabel();
+        update_indexD1 = new javax.swing.JTextField();
+        field_index13 = new javax.swing.JLabel();
+        update_indexE1 = new javax.swing.JTextField();
+        field_index14 = new javax.swing.JLabel();
+        update_hari1 = new javax.swing.JComboBox<>();
+        update_sks1 = new javax.swing.JSpinner();
+        kode_ruang1 = new javax.swing.JLabel();
+        update_koderuang1 = new javax.swing.JTextField();
+        field_kdmk7 = new javax.swing.JLabel();
         bariskedua1 = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
@@ -317,7 +407,7 @@ public class app_upt extends javax.swing.JFrame {
         button_input = new javax.swing.JLabel();
         pukul = new javax.swing.JLabel();
         field_pukul = new javax.swing.JLabel();
-        button_input4 = new javax.swing.JLabel();
+        button_update = new javax.swing.JLabel();
         laman_mahasiswa = new javax.swing.JPanel();
         bariskedua2 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
@@ -332,6 +422,7 @@ public class app_upt extends javax.swing.JFrame {
         searchkan1 = new javax.swing.JLabel();
         search2 = new javax.swing.JLabel();
         searchfix = new javax.swing.JTextField();
+        button_input5 = new javax.swing.JLabel();
         konten_mahasiswa = new javax.swing.JPanel();
         cardlayout_kiri1 = new javax.swing.JPanel();
         fresh_open1 = new javax.swing.JPanel();
@@ -359,6 +450,13 @@ public class app_upt extends javax.swing.JFrame {
         waktu_mk4 = new javax.swing.JLabel();
         input_nilaimhs = new javax.swing.JTextField();
         field_waktu2 = new javax.swing.JLabel();
+        laman_updatemhs = new javax.swing.JPanel();
+        input_nim4 = new javax.swing.JTextField();
+        kd_kelas5 = new javax.swing.JLabel();
+        field_kdkelas5 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel33 = new javax.swing.JLabel();
+        DELETE_mhs5 = new javax.swing.JLabel();
         laman_jadwal = new javax.swing.JPanel();
         bariskedua3 = new javax.swing.JPanel();
         jLabel45 = new javax.swing.JLabel();
@@ -424,7 +522,7 @@ public class app_upt extends javax.swing.JFrame {
         btsave_mhs2 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel30 = new javax.swing.JLabel();
-        laman_input4 = new javax.swing.JPanel();
+        laman_updatemhs2 = new javax.swing.JPanel();
         input_namamhs2 = new javax.swing.JTextField();
         input_nim3 = new javax.swing.JTextField();
         field_kdmk4 = new javax.swing.JLabel();
@@ -435,6 +533,25 @@ public class app_upt extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         DELETE_mhs4 = new javax.swing.JLabel();
+        laman_nilai = new javax.swing.JPanel();
+        bariskedua5 = new javax.swing.JPanel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        menu4 = new javax.swing.JPanel();
+        text_matkul7 = new javax.swing.JLabel();
+        field_pukul4 = new javax.swing.JLabel();
+        pilihmatkul1 = new javax.swing.JComboBox<>();
+        iconcari1 = new javax.swing.JLabel();
+        searchkan2 = new javax.swing.JLabel();
+        search3 = new javax.swing.JLabel();
+        searchfix1 = new javax.swing.JTextField();
+        konten_mahasiswa3 = new javax.swing.JPanel();
+        cardlayout_kiri4 = new javax.swing.JPanel();
+        fresh_open4 = new javax.swing.JPanel();
+        text_matkul8 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablenilai = new javax.swing.JTable();
 
         jPanel2.setBackground(new java.awt.Color(70, 130, 180));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1505,6 +1622,382 @@ public class app_upt extends javax.swing.JFrame {
 
         card_komp.add(laman_input, "card2");
 
+        laman_edit.setBackground(new java.awt.Color(255, 255, 255));
+        laman_edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        update_kodemk1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        update_kodemk1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_kodemk1.setBorder(null);
+        laman_edit.add(update_kodemk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 18, 150, -1));
+
+        update_kodekelas1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        update_kodekelas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_kodekelas1.setBorder(null);
+        update_kodekelas1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                update_kodekelas1KeyPressed(evt);
+            }
+        });
+        laman_edit.add(update_kodekelas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 150, -1));
+
+        update_namamk1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        update_namamk1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_namamk1.setBorder(null);
+        laman_edit.add(update_namamk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 150, -1));
+
+        kode_mk5.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        kode_mk5.setText("Kode Matakuliah  :");
+        laman_edit.add(kode_mk5, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 15, -1, -1));
+
+        field_kdmk6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield1.jpg"))); // NOI18N
+        laman_edit.add(field_kdmk6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 14, -1, -1));
+
+        kd_kelas6.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        kd_kelas6.setText("Kode Kelas         :");
+        laman_edit.add(kd_kelas6, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 57, -1, -1));
+
+        field_kdkelas6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield1.jpg"))); // NOI18N
+        laman_edit.add(field_kdkelas6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 56, -1, -1));
+
+        nama_mk1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        nama_mk1.setText("Nama Matakuliah :");
+        laman_edit.add(nama_mk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 140, -1, -1));
+
+        field_namamk1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield1.jpg"))); // NOI18N
+        laman_edit.add(field_namamk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 137, -1, -1));
+
+        sks_mk1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        sks_mk1.setText("SKS                   :");
+        laman_edit.add(sks_mk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 175, -1, -1));
+
+        btupdate_matkul1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/button save.png"))); // NOI18N
+        btupdate_matkul1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btupdate_matkul1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btupdate_matkul1MouseClicked(evt);
+            }
+        });
+        laman_edit.add(btupdate_matkul1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, -1, 40));
+
+        btcupdate_matkul1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/button cancel1.png"))); // NOI18N
+        btcupdate_matkul1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btcupdate_matkul1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btcupdate_matkul1MouseClicked(evt);
+            }
+        });
+        laman_edit.add(btcupdate_matkul1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 550, -1, 40));
+
+        hari_mk1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        hari_mk1.setText("Hari                    :");
+        laman_edit.add(hari_mk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        index_nilai1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        index_nilai1.setText("Index Nilai   :");
+        laman_edit.add(index_nilai1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 295, -1, -1));
+
+        komponen_mk1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        komponen_mk1.setText("Komponen Nilai   :");
+        laman_edit.add(komponen_mk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 295, -1, -1));
+
+        text_uts1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        text_uts1.setText("UTS");
+        laman_edit.add(text_uts1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+
+        text_uas1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        text_uas1.setText("UAS");
+        laman_edit.add(text_uas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+
+        text_quiz1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        text_quiz1.setText("Quiz");
+        laman_edit.add(text_quiz1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, -1, -1));
+
+        text_tugas1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        text_tugas1.setText("Tugas");
+        laman_edit.add(text_tugas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, -1));
+
+        text_tubes1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        text_tubes1.setText("Tugas Besar");
+        laman_edit.add(text_tubes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
+
+        text_prak1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        text_prak1.setText("Praktikum");
+        laman_edit.add(text_prak1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, -1, -1));
+
+        text_tambahan1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        text_tambahan1.setText("Tambahan");
+        laman_edit.add(text_tambahan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, -1, -1));
+
+        update_nuts1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_nuts1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_nuts1.setBorder(null);
+        laman_edit.add(update_nuts1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 333, 20, -1));
+
+        update_nuas1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_nuas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_nuas1.setBorder(null);
+        laman_edit.add(update_nuas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 363, 20, -1));
+
+        update_nquiz1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_nquiz1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_nquiz1.setBorder(null);
+        laman_edit.add(update_nquiz1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 393, 20, -1));
+
+        update_ntugas1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_ntugas1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_ntugas1.setBorder(null);
+        laman_edit.add(update_ntugas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 423, 20, -1));
+
+        update_ntubes1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_ntubes1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_ntubes1.setBorder(null);
+        laman_edit.add(update_ntubes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 453, 20, -1));
+
+        update_nprak1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_nprak1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_nprak1.setBorder(null);
+        laman_edit.add(update_nprak1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 483, 20, -1));
+
+        update_ntambahan1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_ntambahan1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_ntambahan1.setBorder(null);
+        laman_edit.add(update_ntambahan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 513, 20, -1));
+
+        field_uts1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_uts1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 50, -1));
+
+        field_uas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_uas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, 50, -1));
+
+        field_quiz1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_quiz1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 50, -1));
+
+        field_tugas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_tugas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, 50, -1));
+
+        field_tubes1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_tubes1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 50, -1));
+
+        field_praktikum1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_praktikum1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 480, 50, -1));
+
+        field_tambahan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_tambahan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 50, -1));
+
+        persen15.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        persen15.setText("%");
+        laman_edit.add(persen15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, -1, -1));
+
+        persen16.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        persen16.setText("%");
+        laman_edit.add(persen16, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, -1, -1));
+
+        persen17.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        persen17.setText("%");
+        laman_edit.add(persen17, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, -1));
+
+        persen18.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        persen18.setText("%");
+        laman_edit.add(persen18, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
+
+        persen19.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        persen19.setText("%");
+        laman_edit.add(persen19, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 450, -1, -1));
+
+        persen20.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        persen20.setText("%");
+        laman_edit.add(persen20, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, -1, -1));
+
+        persen21.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        persen21.setText("%");
+        laman_edit.add(persen21, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, -1, -1));
+
+        line1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/line.png"))); // NOI18N
+        laman_edit.add(line1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 333, 10, 200));
+
+        update_indexA1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_indexA1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_indexA1.setBorder(null);
+        laman_edit.add(update_indexA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 333, 20, -1));
+
+        update_indexAB1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_indexAB1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_indexAB1.setBorder(null);
+        laman_edit.add(update_indexAB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 363, 20, -1));
+
+        update_indexB1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_indexB1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_indexB1.setBorder(null);
+        laman_edit.add(update_indexB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 393, 20, -1));
+
+        update_indexBC1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_indexBC1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_indexBC1.setBorder(null);
+        laman_edit.add(update_indexBC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 423, 20, -1));
+
+        update_indexC1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_indexC1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_indexC1.setBorder(null);
+        laman_edit.add(update_indexC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 453, 20, -1));
+
+        index_A1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        index_A1.setText("A");
+        laman_edit.add(index_A1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
+
+        index_B3.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        index_B3.setText("E");
+        laman_edit.add(index_B3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 510, -1, -1));
+
+        index_C1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        index_C1.setText("B");
+        laman_edit.add(index_C1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, -1, -1));
+
+        index_D1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        index_D1.setText("BC");
+        laman_edit.add(index_D1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, -1, -1));
+
+        index_E1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        index_E1.setText("C");
+        laman_edit.add(index_E1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, -1, -1));
+
+        field_index5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_index5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 50, -1));
+
+        field_index7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_index7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 50, -1));
+
+        field_index10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_index10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 50, -1));
+
+        field_index11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_index11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, 50, -1));
+
+        jLabel37.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel37.setText(":");
+        laman_edit.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 10, -1));
+
+        jLabel52.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel52.setText(":");
+        laman_edit.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, 10, 20));
+
+        jLabel53.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel53.setText(":");
+        laman_edit.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 10, -1));
+
+        jLabel54.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel54.setText(":");
+        laman_edit.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, 10, -1));
+
+        jLabel55.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel55.setText(":");
+        laman_edit.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 10, -1));
+
+        jLabel56.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel56.setText(":");
+        laman_edit.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 10, -1));
+
+        jLabel57.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel57.setText(":");
+        laman_edit.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 10, 20));
+
+        jLabel58.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel58.setText(":");
+        laman_edit.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 10, 20));
+
+        jLabel59.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel59.setText(":");
+        laman_edit.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 10, 20));
+
+        jLabel60.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel60.setText(":");
+        laman_edit.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 10, 20));
+
+        jLabel61.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel61.setText(":");
+        laman_edit.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 10, 20));
+
+        jLabel62.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel62.setText(":");
+        laman_edit.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, 10, 20));
+
+        waktu_mk8.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        waktu_mk8.setText("Waktu                 :");
+        laman_edit.add(waktu_mk8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
+        update_waktu1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        update_waktu1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_waktu1.setBorder(null);
+        update_waktu1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                update_waktu1KeyPressed(evt);
+            }
+        });
+        laman_edit.add(update_waktu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 254, 150, -1));
+
+        field_waktu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield1.jpg"))); // NOI18N
+        laman_edit.add(field_waktu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
+
+        index_B4.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        index_B4.setText("AB");
+        laman_edit.add(index_B4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
+
+        index_B5.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        index_B5.setText("D");
+        laman_edit.add(index_B5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 480, -1, -1));
+
+        jLabel63.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel63.setText(":");
+        laman_edit.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 10, -1));
+
+        jLabel65.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel65.setText(":");
+        laman_edit.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 10, -1));
+
+        field_index12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_index12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, 50, -1));
+
+        update_indexD1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_indexD1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_indexD1.setBorder(null);
+        laman_edit.add(update_indexD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 483, 20, -1));
+
+        field_index13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_index13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, 50, -1));
+
+        update_indexE1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
+        update_indexE1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_indexE1.setBorder(null);
+        laman_edit.add(update_indexE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 513, 20, -1));
+
+        field_index14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield_kecil.png"))); // NOI18N
+        laman_edit.add(field_index14, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 510, 50, -1));
+
+        update_hari1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih Hari :", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu" }));
+        update_hari1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        update_hari1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        update_hari1.setOpaque(false);
+        laman_edit.add(update_hari1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 170, -1));
+
+        update_sks1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        update_sks1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        update_sks1.setName(""); // NOI18N
+        update_sks1.setOpaque(false);
+        laman_edit.add(update_sks1, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 176, -1, -1));
+
+        kode_ruang1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        kode_ruang1.setText("Ruangan             :");
+        laman_edit.add(kode_ruang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 100, -1, -1));
+
+        update_koderuang1.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        update_koderuang1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        update_koderuang1.setBorder(null);
+        laman_edit.add(update_koderuang1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 150, -1));
+
+        field_kdmk7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield1.jpg"))); // NOI18N
+        laman_edit.add(field_kdmk7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 97, -1, -1));
+
+        card_komp.add(laman_edit, "card2");
+
         cardlayout_kanan.add(card_komp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 355, 600));
 
         konten_matkul.add(cardlayout_kanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 5, 360, 610));
@@ -1572,14 +2065,14 @@ public class app_upt extends javax.swing.JFrame {
         field_pukul.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         menu.add(field_pukul, new org.netbeans.lib.awtextra.AbsoluteConstraints(1196, 13, 157, 30));
 
-        button_input4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/Rectangle 2.PNG"))); // NOI18N
-        button_input4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        button_input4.addMouseListener(new java.awt.event.MouseAdapter() {
+        button_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/Rectangle 2.PNG"))); // NOI18N
+        button_update.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_update.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_input4MouseClicked(evt);
+                button_updateMouseClicked(evt);
             }
         });
-        menu.add(button_input4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, 80, 30));
+        menu.add(button_update, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, 80, 30));
 
         laman_matkul.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1365, 70));
 
@@ -1671,6 +2164,14 @@ public class app_upt extends javax.swing.JFrame {
 
         searchfix.setBorder(null);
 
+        button_input5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/button delete.PNG"))); // NOI18N
+        button_input5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_input5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_input5MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout menu1Layout = new javax.swing.GroupLayout(menu1);
         menu1.setLayout(menu1Layout);
         menu1Layout.setHorizontalGroup(
@@ -1686,9 +2187,11 @@ public class app_upt extends javax.swing.JFrame {
                 .addComponent(searchfix, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(search2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addGap(55, 55, 55)
                 .addComponent(button_input1)
-                .addGap(106, 106, 106)
+                .addGap(33, 33, 33)
+                .addComponent(button_input5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addComponent(field_pukul1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
             .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1699,24 +2202,30 @@ public class app_upt extends javax.swing.JFrame {
         );
         menu1Layout.setVerticalGroup(
             menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pilihmatkul, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(text_matkul1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconcari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menu1Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(field_pukul1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_input1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(search2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
             .addGroup(menu1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(searchfix, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pilihmatkul, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(text_matkul1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(iconcari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(search2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menu1Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(button_input5)
+                                    .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(field_pukul1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(menu1Layout.createSequentialGroup()
+                                            .addGap(5, 5, 5)
+                                            .addComponent(button_input1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(menu1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(searchfix, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(menu1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1916,6 +2425,36 @@ public class app_upt extends javax.swing.JFrame {
         laman_input1.add(field_waktu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 60, 40));
 
         card_atas1.add(laman_input1, "card2");
+
+        laman_updatemhs.setBackground(new java.awt.Color(255, 255, 255));
+        laman_updatemhs.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        input_nim4.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        input_nim4.setBorder(null);
+        laman_updatemhs.add(input_nim4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 93, 150, -1));
+
+        kd_kelas5.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
+        kd_kelas5.setText("NIM          :");
+        laman_updatemhs.add(kd_kelas5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+
+        field_kdkelas5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield1.jpg"))); // NOI18N
+        laman_updatemhs.add(field_kdkelas5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 89, -1, 30));
+        laman_updatemhs.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 360, 10));
+
+        jLabel33.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel33.setText("DELETE DATA");
+        laman_updatemhs.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+
+        DELETE_mhs5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/DELETE.PNG"))); // NOI18N
+        DELETE_mhs5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DELETE_mhs5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DELETE_mhs5MouseClicked(evt);
+            }
+        });
+        laman_updatemhs.add(DELETE_mhs5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, 40));
+
+        card_atas1.add(laman_updatemhs, "card2");
 
         cardlayout_kanan1.add(card_atas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 360, 510));
 
@@ -2438,30 +2977,30 @@ public class app_upt extends javax.swing.JFrame {
 
         card_atas3.add(laman_input3, "card2");
 
-        laman_input4.setBackground(new java.awt.Color(255, 255, 255));
-        laman_input4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        laman_updatemhs2.setBackground(new java.awt.Color(255, 255, 255));
+        laman_updatemhs2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         input_namamhs2.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
         input_namamhs2.setBorder(null);
-        laman_input4.add(input_namamhs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 93, 150, -1));
+        laman_updatemhs2.add(input_namamhs2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 93, 150, -1));
 
         input_nim3.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
         input_nim3.setBorder(null);
-        laman_input4.add(input_nim3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 143, 150, -1));
+        laman_updatemhs2.add(input_nim3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 143, 150, -1));
 
         field_kdmk4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield1.jpg"))); // NOI18N
-        laman_input4.add(field_kdmk4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, -1, -1));
+        laman_updatemhs2.add(field_kdmk4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, -1, -1));
 
         kode_mk4.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
         kode_mk4.setText("Nama       :");
-        laman_input4.add(kode_mk4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        laman_updatemhs2.add(kode_mk4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         kd_kelas4.setFont(new java.awt.Font("SansSerif", 0, 17)); // NOI18N
         kd_kelas4.setText("NIM          :");
-        laman_input4.add(kd_kelas4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        laman_updatemhs2.add(kd_kelas4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         field_kdkelas4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield1.jpg"))); // NOI18N
-        laman_input4.add(field_kdkelas4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
+        laman_updatemhs2.add(field_kdkelas4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
 
         UPDATE_mhs3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/Rectangle 1.png"))); // NOI18N
         UPDATE_mhs3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2470,12 +3009,12 @@ public class app_upt extends javax.swing.JFrame {
                 UPDATE_mhs3MouseClicked(evt);
             }
         });
-        laman_input4.add(UPDATE_mhs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
-        laman_input4.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 360, 10));
+        laman_updatemhs2.add(UPDATE_mhs3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+        laman_updatemhs2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 360, 10));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel1.setText("UPDATE DATA");
-        laman_input4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+        laman_updatemhs2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         DELETE_mhs4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/DELETE.PNG"))); // NOI18N
         DELETE_mhs4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -2484,9 +3023,9 @@ public class app_upt extends javax.swing.JFrame {
                 DELETE_mhs4MouseClicked(evt);
             }
         });
-        laman_input4.add(DELETE_mhs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, 40));
+        laman_updatemhs2.add(DELETE_mhs4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, 40));
 
-        card_atas3.add(laman_input4, "card2");
+        card_atas3.add(laman_updatemhs2, "card2");
 
         cardlayout_kanan3.add(card_atas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 360, 510));
 
@@ -2495,6 +3034,233 @@ public class app_upt extends javax.swing.JFrame {
         laman_mahasiswa1.add(konten_mahasiswa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1365, 610));
 
         Laman.add(laman_mahasiswa1, "card3");
+
+        laman_nilai.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bariskedua5.setBackground(new java.awt.Color(255, 255, 255));
+        bariskedua5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel67.setFont(new java.awt.Font("SansSerif", 0, 23)); // NOI18N
+        jLabel67.setText("Tools Dosen Institut Teknologi Sumatera");
+        jLabel67.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel68.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/logoitera.png"))); // NOI18N
+
+        javax.swing.GroupLayout bariskedua5Layout = new javax.swing.GroupLayout(bariskedua5);
+        bariskedua5.setLayout(bariskedua5Layout);
+        bariskedua5Layout.setHorizontalGroup(
+            bariskedua5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bariskedua5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel68)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel67)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel66)
+                .addContainerGap(821, Short.MAX_VALUE))
+        );
+        bariskedua5Layout.setVerticalGroup(
+            bariskedua5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bariskedua5Layout.createSequentialGroup()
+                .addGroup(bariskedua5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel66)
+                    .addGroup(bariskedua5Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel68))
+                    .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        laman_nilai.add(bariskedua5, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 1, 1290, 55));
+
+        menu4.setBackground(new java.awt.Color(255, 255, 255));
+
+        text_matkul7.setFont(new java.awt.Font("SansSerif", 0, 23)); // NOI18N
+        text_matkul7.setText("Mata Kuliah : ");
+        text_matkul7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        field_pukul4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        field_pukul4.setText("  PUKUL : ");
+        field_pukul4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        field_pukul4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                field_pukul4MouseClicked(evt);
+            }
+        });
+
+        pilihmatkul1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pilihmatkul1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pilihmatkul1ActionPerformed(evt);
+            }
+        });
+
+        iconcari1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/search_find_lupa_21889.png"))); // NOI18N
+        iconcari1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconcari1MouseClicked(evt);
+            }
+        });
+
+        searchkan2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield1.jpg"))); // NOI18N
+
+        search3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/cari.PNG"))); // NOI18N
+        search3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                search3MouseClicked(evt);
+            }
+        });
+
+        searchfix1.setBorder(null);
+
+        javax.swing.GroupLayout menu4Layout = new javax.swing.GroupLayout(menu4);
+        menu4.setLayout(menu4Layout);
+        menu4Layout.setHorizontalGroup(
+            menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(text_matkul7, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pilihmatkul1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(iconcari1)
+                .addGap(216, 216, 216)
+                .addComponent(searchfix1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(search3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
+                .addComponent(field_pukul4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+            .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(menu4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(searchkan2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        menu4Layout.setVerticalGroup(
+            menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu4Layout.createSequentialGroup()
+                .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pilihmatkul1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(text_matkul7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(iconcari1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(search3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menu4Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(field_pukul4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(menu4Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(searchfix1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(menu4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(searchkan2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        laman_nilai.add(menu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1365, 70));
+
+        konten_mahasiswa3.setBackground(new java.awt.Color(250, 250, 250));
+        konten_mahasiswa3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cardlayout_kiri4.setBackground(new java.awt.Color(255, 255, 255));
+        cardlayout_kiri4.setLayout(new java.awt.CardLayout());
+
+        fresh_open4.setBackground(new java.awt.Color(255, 255, 255));
+        fresh_open4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        text_matkul8.setFont(new java.awt.Font("SansSerif", 0, 23)); // NOI18N
+        text_matkul8.setText("Daftar Mahasiswa ");
+        text_matkul8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        text_matkul8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        tablenilai.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "NIM", "Nama", "Kode Kelas", "Mata Kuliah", "SKS", "Tugas Besar"
+            }
+        ));
+        tablenilai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablenilaiMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tablenilai);
+        if (tablenilai.getColumnModel().getColumnCount() > 0) {
+            tablenilai.getColumnModel().getColumn(0).setResizable(false);
+            tablenilai.getColumnModel().getColumn(1).setResizable(false);
+            tablenilai.getColumnModel().getColumn(2).setResizable(false);
+            tablenilai.getColumnModel().getColumn(3).setResizable(false);
+            tablenilai.getColumnModel().getColumn(4).setResizable(false);
+            tablenilai.getColumnModel().getColumn(5).setResizable(false);
+        }
+
+        javax.swing.GroupLayout fresh_open4Layout = new javax.swing.GroupLayout(fresh_open4);
+        fresh_open4.setLayout(fresh_open4Layout);
+        fresh_open4Layout.setHorizontalGroup(
+            fresh_open4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fresh_open4Layout.createSequentialGroup()
+                .addGroup(fresh_open4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fresh_open4Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(text_matkul8))
+                    .addGroup(fresh_open4Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+        fresh_open4Layout.setVerticalGroup(
+            fresh_open4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fresh_open4Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(text_matkul8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
+        );
+
+        cardlayout_kiri4.add(fresh_open4, "card2");
+
+        konten_mahasiswa3.add(cardlayout_kiri4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1340, 590));
+
+        laman_nilai.add(konten_mahasiswa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1365, 610));
+
+        Laman.add(laman_nilai, "card3");
 
         getContentPane().add(Laman, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 31, 1365, 740));
 
@@ -2537,11 +3303,10 @@ public class app_upt extends javax.swing.JFrame {
         tablematkul.disable();
         show_komponen.setVisible(false);
         laman_input.setVisible(true);
-                btcancel_matkul.setVisible(true);
+        btcancel_matkul.setVisible(true);
         btsave_matkul.setVisible(true);
         
     }//GEN-LAST:event_button_inputMouseClicked
-    
     
     public void saveData(){
         loaddata();
@@ -2605,6 +3370,7 @@ public class app_upt extends javax.swing.JFrame {
         laman_mahasiswa.setVisible(true);
         HalamanAwal.setVisible(false);
         laman_jadwal.setVisible(false);
+        laman_nilai.setVisible(false);
         laman_matkul.setVisible(false);
         
         TableMhs a = new TableMhs(tablemhs);
@@ -2643,6 +3409,27 @@ public class app_upt extends javax.swing.JFrame {
     }//GEN-LAST:event_input_mhs2ActionPerformed
     
     private void btsave_mhsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btsave_mhsMouseClicked
+        Connection conn;
+        Statement stat;
+        String cari;
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/anima", "root", "");
+            stat = conn.createStatement();
+            String sql="select * from nilai where "+ "nim='" +input_nim1.getText() +"' && kode_mk= '"+ pilihmatkul.getSelectedItem().toString()+"'";
+            ResultSet R = stat.executeQuery(sql); 
+            if(input_nim1.getText().trim().isEmpty()){             
+                JOptionPane.showMessageDialog(null, "Inputan NIM kosong!", "Data Tidak Tersimpan",2);
+            }
+                else if(!input_nim1.getText().trim().isEmpty()){              
+            }
+            if(!input_nim1.getText().trim().isEmpty() && R.next()){
+                cari = R.getString(1);                
+                JOptionPane.showMessageDialog(null, "NIM : "+cari+"\nSudah terdapat didalam data. Harap input Data baru.","Duplikat",JOptionPane.WARNING_MESSAGE);
+            }
+        }catch(ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException | HeadlessException ex){
+            JOptionPane.showMessageDialog(null, "Terdapat Kesalahan");
+        }
         
         DaftarNilai ps = new DaftarNilai(input_nim1.getText(),
             new Nilai(   
@@ -2650,11 +3437,9 @@ public class app_upt extends javax.swing.JFrame {
             )
         );
         if(ps.validasiData()){
-            if(ps.getDaftar()!=-1){
+            if(ps.getDaftar1()!=-1 && ps.getDaftar2()!=-1){
                 JOptionPane.showMessageDialog(null, "Berhasil ditambahkan");
             }
-        }else{
-            ps.Pesan("Data Tidak Valid!");
         }
         TableMhs a = new TableMhs(tablemhs);
         lebarKolomMhs();
@@ -2664,7 +3449,39 @@ public class app_upt extends javax.swing.JFrame {
     }//GEN-LAST:event_btsave_mhsMouseClicked
 
     private void btsave_nilaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btsave_nilaiMouseClicked
-        if(komponenmhs.isEnabled()){
+        
+        Connection conn;
+        Statement stat;
+        String cari;
+        int eror = 0;
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/anima", "root", "");
+            stat = conn.createStatement();
+            String sql="select * from nilai where "+ "nim='" +input_mhs2.getText() +"' && kode_mk= '"+ pilihmatkul.getSelectedItem().toString()+"'";
+            ResultSet R = stat.executeQuery(sql); 
+            R.next();
+            cari = R.getString(1);
+            if(!cari.isEmpty()){
+                eror=1;
+            }
+//            if(input_nilaimhs.getText().trim().isEmpty() && input_mhs2.getText().trim().isEmpty()){
+//                JOptionPane.showMessageDialog(null, "Inputan NIM dan Nilai kosong!", "Data Tidak Tersimpan",2);
+//            }
+//            else{
+//                if(input_mhs2.getText().trim().isEmpty()){       
+//                    JOptionPane.showMessageDialog(null, "Inputan NIM kosong!", "Data Tidak Tersimpan",2);
+//                }
+//                if(input_nilaimhs.getText().trim().isEmpty()){
+//                    JOptionPane.showMessageDialog(null, "Inputan Nilai kosong!", "Data Tidak Tersimpan",2);
+//                }
+//            }
+            
+        }catch(ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException | HeadlessException ex){
+            //JOptionPane.showMessageDialog(null, "Terdapat Kesalahan");
+        }
+        
+        if(komponenmhs.isEnabled()&& !input_mhs2.getText().trim().isEmpty() && !input_nilaimhs.getText().trim().isEmpty()&&eror==1 ){
             TableMhs a = new TableMhs(tablemhs);
             a.getUpdateNilai(input_mhs2.getText(),komponenmhs.getSelectedItem().toString(),input_nilaimhs.getText(),pilihmatkul.getSelectedItem().toString() );
             lebarKolomMhs();
@@ -2672,9 +3489,10 @@ public class app_upt extends javax.swing.JFrame {
             a.getDataMhs(pilihmatkul.getSelectedItem().toString());
             input_mhs2.setText("");
             input_nilaimhs.setText("");
-        }else {
-            JOptionPane.showMessageDialog(null, "Update Data salah" );
+        }else  {
+            JOptionPane.showMessageDialog(null, "Update Data salah, periksa NIM yang dimasukkan" );
         }
+        
     }//GEN-LAST:event_btsave_nilaiMouseClicked
 
     private void komponenmhsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_komponenmhsActionPerformed
@@ -2746,6 +3564,35 @@ public class app_upt extends javax.swing.JFrame {
         column = tablemhs.getColumnModel().getColumn(8); 
         column.setPreferredWidth(70); 
     }
+    public void lebarKolomNilai(){ 
+        TableColumn column;
+        tablenilai.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF); 
+      
+        column = tablenilai.getColumnModel().getColumn(0);
+        column.setPreferredWidth(120);
+        column = tablenilai.getColumnModel().getColumn(1); 
+        column.setPreferredWidth(212); 
+        column = tablenilai.getColumnModel().getColumn(2); 
+        column.setPreferredWidth(212); 
+        column = tablenilai.getColumnModel().getColumn(3); 
+        column.setPreferredWidth(70); 
+        column = tablenilai.getColumnModel().getColumn(4); 
+        column.setPreferredWidth(70); 
+        column = tablenilai.getColumnModel().getColumn(5); 
+        column.setPreferredWidth(70); 
+        column = tablenilai.getColumnModel().getColumn(6); 
+        column.setPreferredWidth(70); 
+        column = tablenilai.getColumnModel().getColumn(7); 
+        column.setPreferredWidth(70); 
+        column = tablenilai.getColumnModel().getColumn(8); 
+        column.setPreferredWidth(70); 
+        column = tablenilai.getColumnModel().getColumn(9);
+        column.setPreferredWidth(70);
+        column = tablenilai.getColumnModel().getColumn(10);
+        column.setPreferredWidth(70);
+        column = tablenilai.getColumnModel().getColumn(11);
+        column.setPreferredWidth(70);
+    }
     public void lebarKolomMatkul(){ 
         TableColumn column;
         tablematkul.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF); 
@@ -2767,13 +3614,16 @@ public class app_upt extends javax.swing.JFrame {
         nav.setVisible(true);
         animasi_slide.jTextAreaXLeft(0, -230, 20, 10, nav);
         laman_matkul.setVisible(false);
-        laman_jadwal.setVisible(true);
+        laman_jadwal.setVisible(false);
+        laman_nilai.setVisible(true);
         HalamanAwal.setVisible(false);
         laman_mahasiswa.setVisible(false);
+        laman_mahasiswa1.setVisible(false);
         
-        jadwalmatkul a = new jadwalmatkul(tablejadwal);
-        lebarKolom();
-        a.getData();
+        TableNilai a = new TableNilai(tablenilai);
+        lebarKolomNilai();
+        a.getKlik();
+        a.getData(pilihmatkul1.getSelectedItem().toString());
     }//GEN-LAST:event_menu_lihatnilaiMouseClicked
 
     private void pilihmatkulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihmatkulActionPerformed
@@ -2789,7 +3639,7 @@ public class app_upt extends javax.swing.JFrame {
     private void button_input2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_input2MouseClicked
         blank3.setVisible(false);
         laman_input3.setVisible(true);
-        laman_input4.setVisible(false);
+        laman_updatemhs2.setVisible(false);
     }//GEN-LAST:event_button_input2MouseClicked
 
     private void field_pukul2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_field_pukul2MouseClicked
@@ -2823,7 +3673,9 @@ public class app_upt extends javax.swing.JFrame {
         HalamanAwal.setVisible(false);
         laman_jadwal.setVisible(false);
         laman_matkul.setVisible(false);
+        laman_nilai.setVisible(false);
         laman_mahasiswa1.setVisible(true);
+        
         Tablemhssemua a = new Tablemhssemua(tablemhs1);
         //lebarKolomMhs();
         a.getData();
@@ -2843,21 +3695,9 @@ public class app_upt extends javax.swing.JFrame {
         a.getData();
     }//GEN-LAST:event_jadwalMouseClicked
 
-    private void UPDATE_mhs3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UPDATE_mhs3MouseClicked
-        Tablemhssemua a = new Tablemhssemua(tablemhs1);
-        if(!input_namamhs2.getText().isEmpty()&& !input_nim3.getText().isEmpty()){
-            a.getUpdate(input_namamhs2.getText(), input_nim3.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Data tidak berubah");
-        }
-        a.getData();
-        input_namamhs2.setText("");
-        input_nim3.setText("");
-    }//GEN-LAST:event_UPDATE_mhs3MouseClicked
-
     private void button_input3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_input3MouseClicked
         blank3.setVisible(false);
-        laman_input4.setVisible(true);
+        laman_updatemhs2.setVisible(true);
         laman_input3.setVisible(false);
     }//GEN-LAST:event_button_input3MouseClicked
 
@@ -2877,9 +3717,20 @@ public class app_upt extends javax.swing.JFrame {
         input_nim3.setText("");
     }//GEN-LAST:event_DELETE_mhs4MouseClicked
 
-    private void button_input4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_input4MouseClicked
-    
-    }//GEN-LAST:event_button_input4MouseClicked
+    private void button_updateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_updateMouseClicked
+        blank.setVisible(false);
+        laman_input.setVisible(false);
+        show_komponen.setVisible(false);
+        laman_edit.setVisible(true);
+        
+        tablematkul.getMousePosition(false);
+        tablematkul.getSelectionModel().isSelectionEmpty();
+        tablematkul.disable();
+        
+        show_komponen.setVisible(false);
+        laman_input.setVisible(false);
+        laman_edit.setVisible(true);
+    }//GEN-LAST:event_button_updateMouseClicked
 
     private void jLabel64MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel64MouseClicked
         Tablemhssemua a = new Tablemhssemua(tablemhs1);
@@ -2896,6 +3747,10 @@ public class app_upt extends javax.swing.JFrame {
         int baris2 = tablemhs.rowAtPoint(evt.getPoint());
         String nim = tablemhs.getValueAt(baris2, 0).toString();
         input_mhs2.setText(nim);
+        input_nim4.setText(nim);
+        
+        int baris3 = tablemhs.rowAtPoint(evt.getPoint());
+       
     }//GEN-LAST:event_tablemhsMouseClicked
 
     private void tablemhs1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablemhs1MouseClicked
@@ -2995,13 +3850,15 @@ public class app_upt extends javax.swing.JFrame {
 
     private void tablematkulMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablematkulMouseClicked
         String Kodemk, Kodekls, Ruang, Namamk, Sks, Hari, Waktu1;
-        int baris;
+        int baris, sks;
         String Ruang1;
+        app_upt app = new app_upt();
         
         baris = tablematkul.rowAtPoint(evt.getPoint());
         
         Kodemk  = tablematkul.getValueAt(baris, 0).toString();
         showkode_mk.setText(Kodemk);
+        update_kodemk1.setText(Kodemk);
         try{
         String myDriver = "org.gjt.mm.mysql.Driver";
         String myUrl = "jdbc:mysql://localhost/Anima";
@@ -3019,29 +3876,50 @@ public class app_upt extends javax.swing.JFrame {
         ResultSet r3 = s3.executeQuery(query_index);
         while (r1.next()){
             showkode_kelas.setText(r1.getString("kode_kls"));
+            update_kodekelas1.setText(r1.getString("kode_kls"));
             show_namamk.setText(r1.getString("nama_mk"));
+            update_namamk1.setText(r1.getString("nama_mk"));
             show_sks.setText(r1.getString("sks"));
+            update_sks1.setValue(r1.getInt("sks"));
             show_hari.setText(r1.getString("hari"));
+            update_hari1.setSelectedItem(r1.getString("hari"));
             show_waktu.setText(r1.getString("waktu"));
+            update_waktu1.setText(r1.getString("waktu"));
             show_ruang.setText(r1.getString("ruang"));
+            update_koderuang1.setText(r1.getString("ruang"));
+            
         }
         while(r2.next()){
             show_uts.setText(r2.getString("uts"));
+            update_nuts1.setText(r2.getString("uts"));
             show_uas.setText(r2.getString("uas"));
+            update_nuas1.setText(r2.getString("uas"));
             show_quiz.setText(r2.getString("kuis"));
+            update_nquiz1.setText(r2.getString("kuis"));
             show_tugas.setText(r2.getString("tugas"));
+            update_ntugas1.setText(r2.getString("tugas"));
             show_tubes.setText(r2.getString("tubes"));
+            update_ntubes1.setText(r2.getString("tubes"));
             show_prak.setText(r2.getString("praktikum"));
+            update_nprak1.setText(r2.getString("praktikum"));
             show_tambah.setText(r2.getString("tambahan"));
+            update_ntambahan1.setText(r2.getString("tambahan"));
         }
         while(r3.next()){
             show_a.setText(r3.getString("A"));
+            update_indexA1.setText(r3.getString("A"));
             show_ab.setText(r3.getString("AB"));
+            update_indexAB1.setText(r3.getString("AB"));
             show_b.setText(r3.getString("B"));
+            update_indexB1.setText(r3.getString("B"));
             show_bc.setText(r3.getString("BC"));
+            update_indexBC1.setText(r3.getString("BC"));
             show_c.setText(r3.getString("C"));
+            update_indexC1.setText(r3.getString("C"));
             show_d.setText(r3.getString("D"));
+            update_indexD1.setText(r3.getString("D"));
             show_e.setText(r3.getString("E"));
+            update_indexE1.setText(r3.getString("E"));
         }
         
     }
@@ -3049,18 +3927,158 @@ public class app_upt extends javax.swing.JFrame {
         System.err.println("Got an exception! ");
         System.err.println(e.getMessage());
     }
-        
-        
         tablematkul.enable();
-        
+ 
         if(laman_input.isVisible()){
             show_komponen.setVisible(false);
+            laman_edit.setVisible(false);
             tablematkul.disable();
             laman_input.setVisible(true);
             JOptionPane.showMessageDialog(null,"Anda tidak diperbolehkan meng-klik table saat sedang menginputkan matakuliah", "PERINGATAN",2);
         }
+        
                       
     }//GEN-LAST:event_tablematkulMouseClicked
+
+    private void button_input5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_input5MouseClicked
+        blank1.setVisible(false);
+        laman_updatemhs.setVisible(true);
+        laman_input1.setVisible(false);
+    }//GEN-LAST:event_button_input5MouseClicked
+
+    private void DELETE_mhs5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETE_mhs5MouseClicked
+        
+        Connection conn;
+        Statement stat;
+        String cari;
+        int eror=0;
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/anima", "root", "");
+            stat = conn.createStatement();
+            String sql="select * from nilai where "+ "nim='" +input_nim4.getText() +"' && kode_mk= '"+ pilihmatkul.getSelectedItem().toString()+"'";
+            ResultSet R = stat.executeQuery(sql); 
+            
+            R.next();
+            cari = R.getString(1);
+            if(!cari.isEmpty()){
+                eror=1;
+            }
+
+        }catch(ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException | HeadlessException ex){        
+        }
+        
+        if(!input_nim4.getText().trim().isEmpty() && eror==1 ){
+            TableMhs a = new TableMhs(tablemhs);
+            a.getHapus(input_nim4.getText(),pilihmatkul.getSelectedItem().toString());
+            lebarKolomMhs();
+            
+            a.getDataMhs(pilihmatkul.getSelectedItem().toString());
+            input_nim4.setText("");
+          
+        }else {
+            JOptionPane.showMessageDialog(null, "NIM yang ingin dihapus tidak ditemukan" );
+        }
+    }//GEN-LAST:event_DELETE_mhs5MouseClicked
+
+    private void UPDATE_mhs3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UPDATE_mhs3MouseClicked
+        Tablemhssemua a = new Tablemhssemua(tablemhs1);
+        if(!input_namamhs2.getText().isEmpty()&& !input_nim3.getText().isEmpty()){
+            a.getUpdate(input_namamhs2.getText(), input_nim3.getText());
+        }else{
+            JOptionPane.showMessageDialog(null, "Data tidak berubah");
+        }
+        a.getData();
+        input_namamhs2.setText("");
+        input_nim3.setText("");
+    }//GEN-LAST:event_UPDATE_mhs3MouseClicked
+
+    private void update_kodekelas1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_update_kodekelas1KeyPressed
+        char c = evt.getKeyChar();
+        //Untuk memasukkan jenis Text
+        if(Character.isLetter(c)){
+            input_kodekelas.setEditable(true);
+
+        }else{
+            input_kodekelas.setEditable(false);
+        }
+    }//GEN-LAST:event_update_kodekelas1KeyPressed
+
+    private void btupdate_matkul1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btupdate_matkul1MouseClicked
+        try {
+
+            String matkul ="UPDATE matakuliah SET kode_mk = '"+update_kodemk1.getText()+"', kode_kls = '"+update_kodekelas1.getText()+
+            "', ruang = '"+update_koderuang1.getText()+"', nama_mk = '"+update_namamk1.getText()+
+            "', sks = '"+update_sks1.getValue()+"', hari = '"+update_hari1.getSelectedItem()+"', waktu = '"+
+            update_waktu1.getText()+"' WHERE kode_mk = '"+update_kodemk1.getText()+"'";
+
+            String komp ="UPDATE komponen SET kode_mk = '"+update_kodemk1.getText()+"', uts = '"+update_nuts1.getText()+
+            "', uas = '"+update_nuas1.getText()+"', kuis = '"+update_nquiz1.getText()+
+            "', tugas = '"+update_ntugas1.getText()+"', tubes = '"+update_ntubes1.getText()+"', praktikum = '"+
+            update_nprak1.getText()+"', tambahan = '"+update_ntambahan1.getText()+"' WHERE kode_mk = '"+update_kodemk1.getText()+"'";
+
+            String index ="UPDATE index_nilai SET kode_mk = '"+update_kodemk1.getText()+"', A = '"+update_indexA1.getText()+
+            "', AB = '"+update_indexAB1.getText()+"', B = '"+update_indexB1.getText()+
+            "', BC = '"+update_indexBC1.getText()+"', C = '"+update_indexC1.getText()+"', D = '"+
+            update_indexD1.getText()+"', E = '"+update_indexE1.getText()+"' WHERE kode_mk = '"+update_kodemk1.getText()+"'";
+
+            Connection conn=(Connection)koneksi.getKoneksi();
+            PreparedStatement Matkul=conn.prepareStatement(matkul);
+            PreparedStatement Komp=conn.prepareStatement(komp);
+            PreparedStatement Index=conn.prepareStatement(index);
+            Matkul.executeUpdate();
+            Komp.executeUpdate();
+            Index.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "data berhasil di edit");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Perubahan Data Gagal. "+e.getMessage());
+        }
+        TableMatkul a = new TableMatkul(tablematkul);
+            lebarKolomMatkul();
+            a.getData();
+    }//GEN-LAST:event_btupdate_matkul1MouseClicked
+
+    private void btcupdate_matkul1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcupdate_matkul1MouseClicked
+        laman_input.setVisible(false);
+        laman_edit.setVisible(false);
+        show_komponen.setVisible(true);
+        clear();
+        tablematkul.enable();
+    }//GEN-LAST:event_btcupdate_matkul1MouseClicked
+
+    private void update_waktu1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_update_waktu1KeyPressed
+        char c = evt.getKeyChar();
+        //Untuk memasukkan jenis input Angka
+        if(Character.isLetter(c)){
+            input_waktu.setEditable(false);
+
+        }else{
+            input_waktu.setEditable(true);
+        }
+    }//GEN-LAST:event_update_waktu1KeyPressed
+
+    private void field_pukul4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_field_pukul4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_pukul4MouseClicked
+
+    private void pilihmatkul1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihmatkul1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pilihmatkul1ActionPerformed
+
+    private void iconcari1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconcari1MouseClicked
+        TableNilai a = new TableNilai(tablenilai);
+        lebarKolomNilai();
+        a.getData(pilihmatkul1.getSelectedItem().toString());
+    }//GEN-LAST:event_iconcari1MouseClicked
+
+    private void search3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search3MouseClicked
+
+    private void tablenilaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablenilaiMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablenilaiMouseClicked
 
     /**
      * @param args the command line arguments
@@ -3109,6 +4127,7 @@ public class app_upt extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DELETE_mhs4;
+    private javax.swing.JLabel DELETE_mhs5;
     private javax.swing.JPanel HalamanAwal;
     private javax.swing.JPanel Laman;
     private javax.swing.JLabel UPDATE_mhs3;
@@ -3116,22 +4135,26 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JPanel bariskedua2;
     private javax.swing.JPanel bariskedua3;
     private javax.swing.JPanel bariskedua4;
+    private javax.swing.JPanel bariskedua5;
     private javax.swing.JPanel blank;
     private javax.swing.JPanel blank1;
     private javax.swing.JPanel blank2;
     private javax.swing.JPanel blank3;
     private javax.swing.JLabel btcancel_matkul;
+    private javax.swing.JLabel btcupdate_matkul1;
     private javax.swing.JLabel btsave_matkul;
     private javax.swing.JLabel btsave_mhs;
     private javax.swing.JLabel btsave_mhs1;
     private javax.swing.JLabel btsave_mhs2;
     private javax.swing.JLabel btsave_nilai;
     private javax.swing.JLabel btsave_nilai1;
+    private javax.swing.JLabel btupdate_matkul1;
     private javax.swing.JLabel button_input;
     private javax.swing.JLabel button_input1;
     private javax.swing.JLabel button_input2;
     private javax.swing.JLabel button_input3;
-    private javax.swing.JLabel button_input4;
+    private javax.swing.JLabel button_input5;
+    private javax.swing.JLabel button_update;
     private javax.swing.JPanel card_atas1;
     private javax.swing.JPanel card_atas2;
     private javax.swing.JPanel card_atas3;
@@ -3144,12 +4167,20 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JPanel cardlayout_kiri1;
     private javax.swing.JPanel cardlayout_kiri2;
     private javax.swing.JPanel cardlayout_kiri3;
+    private javax.swing.JPanel cardlayout_kiri4;
     private javax.swing.JComboBox<String> cbx_komponen2;
     private javax.swing.JLabel field_index1;
+    private javax.swing.JLabel field_index10;
+    private javax.swing.JLabel field_index11;
+    private javax.swing.JLabel field_index12;
+    private javax.swing.JLabel field_index13;
+    private javax.swing.JLabel field_index14;
     private javax.swing.JLabel field_index2;
     private javax.swing.JLabel field_index3;
     private javax.swing.JLabel field_index4;
+    private javax.swing.JLabel field_index5;
     private javax.swing.JLabel field_index6;
+    private javax.swing.JLabel field_index7;
     private javax.swing.JLabel field_index8;
     private javax.swing.JLabel field_index9;
     private javax.swing.JLabel field_kdkelas;
@@ -3157,42 +4188,67 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel field_kdkelas2;
     private javax.swing.JLabel field_kdkelas3;
     private javax.swing.JLabel field_kdkelas4;
+    private javax.swing.JLabel field_kdkelas5;
+    private javax.swing.JLabel field_kdkelas6;
     private javax.swing.JLabel field_kdmk;
     private javax.swing.JLabel field_kdmk1;
     private javax.swing.JLabel field_kdmk2;
     private javax.swing.JLabel field_kdmk3;
     private javax.swing.JLabel field_kdmk4;
     private javax.swing.JLabel field_kdmk5;
+    private javax.swing.JLabel field_kdmk6;
+    private javax.swing.JLabel field_kdmk7;
     private javax.swing.JLabel field_namamk;
+    private javax.swing.JLabel field_namamk1;
     private javax.swing.JLabel field_praktikum;
+    private javax.swing.JLabel field_praktikum1;
     private javax.swing.JLabel field_pukul;
     private javax.swing.JLabel field_pukul1;
     private javax.swing.JLabel field_pukul2;
     private javax.swing.JLabel field_pukul3;
+    private javax.swing.JLabel field_pukul4;
     private javax.swing.JLabel field_quiz;
+    private javax.swing.JLabel field_quiz1;
     private javax.swing.JLabel field_tambahan;
+    private javax.swing.JLabel field_tambahan1;
     private javax.swing.JLabel field_tubes;
+    private javax.swing.JLabel field_tubes1;
     private javax.swing.JLabel field_tugas;
+    private javax.swing.JLabel field_tugas1;
     private javax.swing.JLabel field_uas;
+    private javax.swing.JLabel field_uas1;
     private javax.swing.JLabel field_uts;
+    private javax.swing.JLabel field_uts1;
     private javax.swing.JLabel field_waktu;
     private javax.swing.JLabel field_waktu1;
     private javax.swing.JLabel field_waktu2;
     private javax.swing.JLabel field_waktu3;
+    private javax.swing.JLabel field_waktu4;
     private javax.swing.JPanel fresh_open;
     private javax.swing.JPanel fresh_open1;
     private javax.swing.JPanel fresh_open2;
     private javax.swing.JPanel fresh_open3;
+    private javax.swing.JPanel fresh_open4;
     private javax.swing.JLabel hari_mk;
+    private javax.swing.JLabel hari_mk1;
     private javax.swing.JLabel iconcari;
+    private javax.swing.JLabel iconcari1;
     private javax.swing.JLabel index_A;
+    private javax.swing.JLabel index_A1;
     private javax.swing.JLabel index_B;
     private javax.swing.JLabel index_B1;
     private javax.swing.JLabel index_B2;
+    private javax.swing.JLabel index_B3;
+    private javax.swing.JLabel index_B4;
+    private javax.swing.JLabel index_B5;
     private javax.swing.JLabel index_C;
+    private javax.swing.JLabel index_C1;
     private javax.swing.JLabel index_D;
+    private javax.swing.JLabel index_D1;
     private javax.swing.JLabel index_E;
+    private javax.swing.JLabel index_E1;
     private javax.swing.JLabel index_nilai;
+    private javax.swing.JLabel index_nilai1;
     private javax.swing.JComboBox<String> input_hari;
     private javax.swing.JTextField input_indexA;
     private javax.swing.JTextField input_indexAB;
@@ -3215,6 +4271,7 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JTextField input_nim1;
     private javax.swing.JTextField input_nim2;
     private javax.swing.JTextField input_nim3;
+    private javax.swing.JTextField input_nim4;
     private javax.swing.JTextField input_nprak;
     private javax.swing.JTextField input_nquiz;
     private javax.swing.JTextField input_ntambahan;
@@ -3251,9 +4308,11 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -3270,8 +4329,24 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -3284,10 +4359,12 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel jadwal;
     private javax.swing.JPanel judul_halamanAwal;
     private javax.swing.JLabel kd_kelas;
@@ -3295,28 +4372,37 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel kd_kelas2;
     private javax.swing.JLabel kd_kelas3;
     private javax.swing.JLabel kd_kelas4;
+    private javax.swing.JLabel kd_kelas5;
+    private javax.swing.JLabel kd_kelas6;
     private javax.swing.JPanel kepalapanel;
     private javax.swing.JLabel kode_mk;
     private javax.swing.JLabel kode_mk1;
     private javax.swing.JLabel kode_mk2;
     private javax.swing.JLabel kode_mk3;
     private javax.swing.JLabel kode_mk4;
+    private javax.swing.JLabel kode_mk5;
     private javax.swing.JLabel kode_ruang;
+    private javax.swing.JLabel kode_ruang1;
     private javax.swing.JLabel komponen_mk;
+    private javax.swing.JLabel komponen_mk1;
     private javax.swing.JComboBox<String> komponenmhs;
     private javax.swing.JPanel konten_mahasiswa;
     private javax.swing.JPanel konten_mahasiswa1;
     private javax.swing.JPanel konten_mahasiswa2;
+    private javax.swing.JPanel konten_mahasiswa3;
     private javax.swing.JPanel konten_matkul;
+    private javax.swing.JPanel laman_edit;
     private javax.swing.JPanel laman_input;
     private javax.swing.JPanel laman_input1;
     private javax.swing.JPanel laman_input2;
     private javax.swing.JPanel laman_input3;
-    private javax.swing.JPanel laman_input4;
     private javax.swing.JPanel laman_jadwal;
     private javax.swing.JPanel laman_mahasiswa;
     private javax.swing.JPanel laman_mahasiswa1;
     private javax.swing.JPanel laman_matkul;
+    private javax.swing.JPanel laman_nilai;
+    private javax.swing.JPanel laman_updatemhs;
+    private javax.swing.JPanel laman_updatemhs2;
     private javax.swing.JPanel lbl_err1;
     private javax.swing.JPanel lbl_err2;
     private javax.swing.JPanel lbl_err3;
@@ -3346,16 +4432,19 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel lblkode_mk8;
     private javax.swing.JLabel lblkode_mk9;
     private javax.swing.JLabel line;
+    private javax.swing.JLabel line1;
     private javax.swing.JPanel menu;
     private javax.swing.JPanel menu1;
     private javax.swing.JPanel menu2;
     private javax.swing.JPanel menu3;
+    private javax.swing.JPanel menu4;
     private javax.swing.JLabel menu_grafik;
     private javax.swing.JLabel menu_lihatnilai;
     private javax.swing.JLabel menu_mhs;
     private javax.swing.JLabel menu_mhs1;
     private javax.swing.JLabel menu_mk;
     private javax.swing.JLabel nama_mk;
+    private javax.swing.JLabel nama_mk1;
     private javax.swing.JScrollPane nav;
     private javax.swing.JButton navbar;
     private javax.swing.JPanel navigasi1;
@@ -3365,7 +4454,14 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel persen12;
     private javax.swing.JLabel persen13;
     private javax.swing.JLabel persen14;
+    private javax.swing.JLabel persen15;
+    private javax.swing.JLabel persen16;
+    private javax.swing.JLabel persen17;
+    private javax.swing.JLabel persen18;
+    private javax.swing.JLabel persen19;
     private javax.swing.JLabel persen2;
+    private javax.swing.JLabel persen20;
+    private javax.swing.JLabel persen21;
     private javax.swing.JLabel persen3;
     private javax.swing.JLabel persen4;
     private javax.swing.JLabel persen5;
@@ -3374,13 +4470,17 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel persen8;
     private javax.swing.JLabel persen9;
     private javax.swing.JComboBox<String> pilihmatkul;
+    private javax.swing.JComboBox<String> pilihmatkul1;
     private javax.swing.JLabel pukul;
     private javax.swing.JLabel r;
     private javax.swing.JTextField search;
     private javax.swing.JLabel search2;
+    private javax.swing.JLabel search3;
     private javax.swing.JTextField searchfix;
+    private javax.swing.JTextField searchfix1;
     private javax.swing.JLabel searchkan;
     private javax.swing.JLabel searchkan1;
+    private javax.swing.JLabel searchkan2;
     private javax.swing.JLabel show_a;
     private javax.swing.JLabel show_ab;
     private javax.swing.JLabel show_b;
@@ -3404,11 +4504,13 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel showkode_kelas;
     private javax.swing.JLabel showkode_mk;
     private javax.swing.JLabel sks_mk;
+    private javax.swing.JLabel sks_mk1;
     private javax.swing.JPanel tabel;
     private javax.swing.JTable tablejadwal;
     private javax.swing.JTable tablematkul;
     private javax.swing.JTable tablemhs;
     private javax.swing.JTable tablemhs1;
+    private javax.swing.JTable tablenilai;
     private javax.swing.JPanel tampilan_awal;
     private javax.swing.JLabel text1;
     private javax.swing.JLabel text2;
@@ -3420,13 +4522,43 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel text_matkul4;
     private javax.swing.JLabel text_matkul5;
     private javax.swing.JLabel text_matkul6;
+    private javax.swing.JLabel text_matkul7;
+    private javax.swing.JLabel text_matkul8;
     private javax.swing.JLabel text_prak;
+    private javax.swing.JLabel text_prak1;
     private javax.swing.JLabel text_quiz;
+    private javax.swing.JLabel text_quiz1;
     private javax.swing.JLabel text_tambahan;
+    private javax.swing.JLabel text_tambahan1;
     private javax.swing.JLabel text_tubes;
+    private javax.swing.JLabel text_tubes1;
     private javax.swing.JLabel text_tugas;
+    private javax.swing.JLabel text_tugas1;
     private javax.swing.JLabel text_uas;
+    private javax.swing.JLabel text_uas1;
     private javax.swing.JLabel text_uts;
+    private javax.swing.JLabel text_uts1;
+    private javax.swing.JComboBox<String> update_hari1;
+    private javax.swing.JTextField update_indexA1;
+    private javax.swing.JTextField update_indexAB1;
+    private javax.swing.JTextField update_indexB1;
+    private javax.swing.JTextField update_indexBC1;
+    private javax.swing.JTextField update_indexC1;
+    private javax.swing.JTextField update_indexD1;
+    private javax.swing.JTextField update_indexE1;
+    private javax.swing.JTextField update_kodekelas1;
+    private javax.swing.JTextField update_kodemk1;
+    private javax.swing.JTextField update_koderuang1;
+    private javax.swing.JTextField update_namamk1;
+    private javax.swing.JTextField update_nprak1;
+    private javax.swing.JTextField update_nquiz1;
+    private javax.swing.JTextField update_ntambahan1;
+    private javax.swing.JTextField update_ntubes1;
+    private javax.swing.JTextField update_ntugas1;
+    private javax.swing.JTextField update_nuas1;
+    private javax.swing.JTextField update_nuts1;
+    private javax.swing.JSpinner update_sks1;
+    private javax.swing.JTextField update_waktu1;
     private javax.swing.JLabel waktu_mk1;
     private javax.swing.JLabel waktu_mk2;
     private javax.swing.JLabel waktu_mk3;
@@ -3434,5 +4566,6 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel waktu_mk5;
     private javax.swing.JLabel waktu_mk6;
     private javax.swing.JLabel waktu_mk7;
+    private javax.swing.JLabel waktu_mk8;
     // End of variables declaration//GEN-END:variables
 }

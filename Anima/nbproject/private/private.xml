@@ -4,10 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PPL_UPDATE/src/projectppl/app_upt.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PPL_UPDATE/src/InputMahasiswa/DaftarMahasiswa.java</file>
             <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PPL_UPDATE/src/InputMahasiswa/Tablemhssemua.java</file>
             <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PPL_UPDATE/src/InputMahasiswa/TableMhs.java</file>
             <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PPL_UPDATE/src/jadwalmatkul/jadwalmatkul.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PPL_UPDATE/src/InputNilai/DaftarNilai.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/PPL_UPDATE/src/InputNilai/TableNilai.java</file>
         </group>
     </open-files>
 </project-private>

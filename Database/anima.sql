@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2020 at 01:55 PM
+-- Generation Time: Apr 06, 2020 at 02:44 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -74,10 +74,10 @@ CREATE TABLE `komponen` (
 
 INSERT INTO `komponen` (`kode_mk`, `tugas`, `kuis`, `tubes`, `praktikum`, `tambahan`, `uts`, `uas`) VALUES
 ('IF3201', 10, 10, 10, 10, 0, 30, 30),
-('IF3001', 0, 0, 0, 0, 0, 0, 0),
+('IF3001', 10, 10, 15, 5, 0, 30, 30),
 ('IF3042', 0, 0, 0, 0, 0, 0, 0),
 ('IF4201', 0, 0, 0, 0, 0, 0, 0),
-('IF3022', 0, 0, 0, 0, 0, 0, 0),
+('IF3022', 12, 0, 0, 0, 0, 0, 0),
 ('IF3251', 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -92,6 +92,18 @@ CREATE TABLE `konversi_na` (
   `na` float NOT NULL,
   `grade` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `konversi_na`
+--
+
+INSERT INTO `konversi_na` (`nim`, `kode_mk`, `na`, `grade`) VALUES
+('14117138', 'IF3001', 95, ''),
+('14117137', 'IF3001', 1, ''),
+('14117138', 'IF3022', 1.2, ''),
+('14117137', 'IF3022', 1.2, ''),
+('14117138', 'IF3201', 1, ''),
+('14117137', 'IF3201', 1, '');
 
 -- --------------------------------------------------------
 
@@ -110,7 +122,7 @@ CREATE TABLE `mahasiswa` (
 
 INSERT INTO `mahasiswa` (`nim`, `nama`) VALUES
 ('14117137', 'Bagus Budi Setiawan'),
-('14117138', 'Muhammad Muttaqin'),
+('14117138', 'MMuttaqin'),
 ('14117145', 'Muhammad Telaga');
 
 -- --------------------------------------------------------
@@ -164,13 +176,12 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`nim`, `kode_mk`, `tugas`, `kuis`, `tubes`, `praktikum`, `tambahan`, `uts`, `uas`) VALUES
-('14117137', 'IF3001', 89, 0, 0, 100, 0, 0, 80),
-('14117137', 'IF3042', 86.5, 0, 0, 100, 0, 0, 0),
-('14117138', 'IF3042', 90, 0, 0, 0, 0, 0, 0),
-('14117138', 'IF3201', 90, 0, 0, 0, 0, 0, 0),
-('14117145', 'IF3001', 90, 80, 0, 0, 0, 0, 87),
-('14117145', 'IF3042', 90, 60, 0, 0, 0, 0, 0),
-('14117145', 'IF3201', 0, 0, 0, 0, 0, 0, 0);
+('14117137', 'IF3001', 10, 0, 0, 0, 0, 0, 0),
+('14117137', 'IF3022', 10, 0, 0, 0, 0, 0, 0),
+('14117137', 'IF3201', 10, 0, 0, 0, 0, 0, 0),
+('14117138', 'IF3001', 100, 100, 100, 0, 0, 100, 100),
+('14117138', 'IF3022', 10, 0, 0, 0, 0, 0, 0),
+('14117138', 'IF3201', 10, 0, 0, 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
