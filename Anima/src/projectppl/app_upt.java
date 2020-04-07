@@ -3354,6 +3354,7 @@ public class app_upt extends javax.swing.JFrame {
         animasi_slide.jTextAreaXLeft(0, -230, 20, 10, nav);
         laman_matkul.setVisible(true);
         laman_jadwal.setVisible(false);
+        laman_nilai.setVisible(false);
         HalamanAwal.setVisible(false);
         laman_mahasiswa.setVisible(false);
         fresh_open.setVisible(false);
@@ -3623,6 +3624,7 @@ public class app_upt extends javax.swing.JFrame {
         TableNilai a = new TableNilai(tablenilai);
         lebarKolomNilai();
         a.getKlik();
+        a.getKlik2();
         a.getData(pilihmatkul1.getSelectedItem().toString());
     }//GEN-LAST:event_menu_lihatnilaiMouseClicked
 

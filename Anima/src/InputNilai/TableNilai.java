@@ -98,4 +98,34 @@ public class TableNilai {
             JOptionPane.showMessageDialog(null, err.getMessage() );
         }
     } 
+    public final void getKlik2(){
+        try{
+            
+            String sql = "update konversi_na join index_nilai set grade ='A' where na>index_nilai.A && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql2 = "update konversi_na join index_nilai set grade ='AB' where na>index_nilai.AB && na<index_nilai.A && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql3 = "update konversi_na join index_nilai set grade ='B' where na>index_nilai.B && na<index_nilai.AB && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql4 = "update konversi_na join index_nilai set grade ='BC' where na>index_nilai.BC && na<index_nilai.B && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql5 = "update konversi_na join index_nilai set grade ='C' where na>index_nilai.C && na<index_nilai.BC && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql6 = "update konversi_na join index_nilai set grade ='D' where na>index_nilai.D && na<index_nilai.C && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql7 = "update konversi_na join index_nilai set grade ='E' where na<index_nilai.D && konversi_na.kode_mk=index_nilai.kode_mk; ";
+                    
+            java.sql.Connection conn = (Connection)conek.GetConnection();
+            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
+            pst.execute();
+            java.sql.PreparedStatement pst2 = conn.prepareStatement(sql2);
+            pst2.execute();
+            java.sql.PreparedStatement pst3 = conn.prepareStatement(sql3);
+            pst3.execute();
+            java.sql.PreparedStatement pst4 = conn.prepareStatement(sql4);
+            pst4.execute();
+            java.sql.PreparedStatement pst5 = conn.prepareStatement(sql5);
+            pst5.execute();
+            java.sql.PreparedStatement pst6 = conn.prepareStatement(sql6);
+            pst6.execute();
+            java.sql.PreparedStatement pst7 = conn.prepareStatement(sql7);
+            pst7.execute();
+        }catch(SQLException err){
+            JOptionPane.showMessageDialog(null, err.getMessage() );
+        }
+    } 
 }
