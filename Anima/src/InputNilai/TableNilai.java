@@ -17,8 +17,7 @@ public class TableNilai {
         model = new DefaultTableModel ( );
         apa.setModel(model);
         model.addColumn("NIM");
-        model.addColumn("Nama");
-        model.addColumn("Mata Kuliah");
+        model.addColumn("Nama");      
         model.addColumn("Tugas");
         model.addColumn("Kuis");
         model.addColumn("Praktikum");
@@ -33,25 +32,24 @@ public class TableNilai {
         try{
             Statement stat = (Statement) conek.GetConnection().createStatement( );
             
-            String sql= "select nilai.nim,nama,nama_mk,nilai.tugas,nilai.kuis,nilai.praktikum,nilai.tubes,nilai.uts,nilai.uas,"
+            String sql= "select nilai.nim,nama,nilai.tugas,nilai.kuis,nilai.praktikum,nilai.tubes,nilai.uts,nilai.uas,"
                     + "nilai.tambahan,na,grade from konversi_na join nilai join mahasiswa join matakuliah where nilai.nim=konversi_na.nim "
                     + "&& nilai.kode_mk=konversi_na.kode_mk && nilai.nim=mahasiswa.nim && nilai.kode_mk=matakuliah.kode_mk"
                     + "&& matakuliah.kode_mk='"+key+"';";
             ResultSet res   = stat.executeQuery(sql);
             while(res.next ()){
-                Object[ ] obj = new Object[12];
+                Object[ ] obj = new Object[11];
                 obj[0] = res.getString("nilai.nim"); 
-                obj[1] = res.getString("nama");
-                obj[2] = res.getString("nama_mk"); 
-                obj[3] = res.getString("nilai.tugas");
-                obj[4] = res.getString("nilai.kuis"); 
-                obj[5] = res.getString("nilai.praktikum");
-                obj[6] = res.getString("nilai.tubes"); 
-                obj[7] = res.getString("nilai.uts");
-                obj[8] = res.getString("nilai.uas"); 
-                obj[9] = res.getString("nilai.tambahan"); 
-                obj[10] = res.getString("na"); 
-                obj[11] = res.getString("grade"); 
+                obj[1] = res.getString("nama");                
+                obj[2] = res.getString("nilai.tugas");
+                obj[3] = res.getString("nilai.kuis"); 
+                obj[4] = res.getString("nilai.praktikum");
+                obj[5] = res.getString("nilai.tubes"); 
+                obj[6] = res.getString("nilai.uts");
+                obj[7] = res.getString("nilai.uas"); 
+                obj[8] = res.getString("nilai.tambahan"); 
+                obj[9] = res.getString("na"); 
+                obj[10] = res.getString("grade"); 
                 model.addRow(obj);
             }
         }catch(SQLException err){

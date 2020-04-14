@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2020 at 02:44 AM
+-- Generation Time: Apr 14, 2020 at 01:13 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -44,12 +44,12 @@ CREATE TABLE `index_nilai` (
 --
 
 INSERT INTO `index_nilai` (`kode_mk`, `A`, `AB`, `B`, `BC`, `C`, `D`, `E`) VALUES
-('IF3201', 85, 0, 78, 0, 70, 65, 55),
-('IF3001', 0, 0, 0, 0, 0, 0, 0),
-('IF3042', 0, 0, 0, 0, 0, 0, 0),
+('IF3201', 85, 83, 78, 75, 70, 65, 55),
+('IF3001', 85, 80, 75, 67, 60, 55, 40),
+('IF3042', 85, 75, 70, 65, 60, 55, 40),
 ('IF4201', 0, 0, 0, 0, 0, 0, 0),
-('IF3022', 0, 0, 0, 0, 0, 0, 0),
-('IF3251', 0, 0, 0, 0, 0, 0, 0);
+('IF3022', 90, 85, 80, 75, 70, 65, 50),
+('IF3251', 90, 82, 77, 72, 65, 55, 45);
 
 -- --------------------------------------------------------
 
@@ -75,10 +75,10 @@ CREATE TABLE `komponen` (
 INSERT INTO `komponen` (`kode_mk`, `tugas`, `kuis`, `tubes`, `praktikum`, `tambahan`, `uts`, `uas`) VALUES
 ('IF3201', 10, 10, 10, 10, 0, 30, 30),
 ('IF3001', 10, 10, 15, 5, 0, 30, 30),
-('IF3042', 0, 0, 0, 0, 0, 0, 0),
+('IF3042', 10, 15, 10, 5, 0, 30, 30),
 ('IF4201', 0, 0, 0, 0, 0, 0, 0),
-('IF3022', 12, 0, 0, 0, 0, 0, 0),
-('IF3251', 0, 0, 0, 0, 0, 0, 0);
+('IF3022', 10, 10, 10, 10, 0, 30, 30),
+('IF3251', 0, 0, 0, 0, 0, 50, 50);
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,7 @@ INSERT INTO `komponen` (`kode_mk`, `tugas`, `kuis`, `tubes`, `praktikum`, `tamba
 --
 
 CREATE TABLE `konversi_na` (
-  `nim` varchar(10) NOT NULL,
+  `nim` int(11) NOT NULL,
   `kode_mk` varchar(8) NOT NULL,
   `na` float NOT NULL,
   `grade` varchar(2) NOT NULL
@@ -98,12 +98,13 @@ CREATE TABLE `konversi_na` (
 --
 
 INSERT INTO `konversi_na` (`nim`, `kode_mk`, `na`, `grade`) VALUES
-('14117138', 'IF3001', 95, ''),
-('14117137', 'IF3001', 1, ''),
-('14117138', 'IF3022', 1.2, ''),
-('14117137', 'IF3022', 1.2, ''),
-('14117138', 'IF3201', 1, ''),
-('14117137', 'IF3201', 1, '');
+('14117138', 'IF3001', 95, 'A'),
+('14117137', 'IF3001', 76.8, 'B'),
+('14117138', 'IF3022', 83.9, 'B'),
+('14117137', 'IF3022', 25, 'E'),
+('14117138', 'IF3201', 31, 'E'),
+('14117137', 'IF3201', 20, 'E'),
+('14117145', 'IF3001', 79.75, 'B');
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,7 @@ INSERT INTO `konversi_na` (`nim`, `kode_mk`, `na`, `grade`) VALUES
 --
 
 CREATE TABLE `mahasiswa` (
-  `nim` varchar(10) NOT NULL,
+  `nim` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -160,7 +161,7 @@ INSERT INTO `matakuliah` (`kode_mk`, `kode_kls`, `ruang`, `nama_mk`, `sks`, `har
 --
 
 CREATE TABLE `nilai` (
-  `nim` varchar(10) NOT NULL,
+  `nim` int(11) NOT NULL,
   `kode_mk` varchar(8) NOT NULL,
   `tugas` float DEFAULT NULL,
   `kuis` float DEFAULT NULL,
@@ -176,12 +177,13 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`nim`, `kode_mk`, `tugas`, `kuis`, `tubes`, `praktikum`, `tambahan`, `uts`, `uas`) VALUES
-('14117137', 'IF3001', 10, 0, 0, 0, 0, 0, 0),
-('14117137', 'IF3022', 10, 0, 0, 0, 0, 0, 0),
-('14117137', 'IF3201', 10, 0, 0, 0, 0, 0, 0),
+('14117137', 'IF3001', 80, 98, 0, 100, 0, 80, 100),
+('14117137', 'IF3022', 10, 0, 0, 0, 0, 0, 80),
+('14117137', 'IF3201', 50, 0, 0, 0, 0, 50, 0),
 ('14117138', 'IF3001', 100, 100, 100, 0, 0, 100, 100),
-('14117138', 'IF3022', 10, 0, 0, 0, 0, 0, 0),
-('14117138', 'IF3201', 10, 0, 0, 0, 0, 0, 0);
+('14117138', 'IF3022', 87, 96, 70, 100, 0, 86, 76),
+('14117138', 'IF3201', 10, 0, 0, 0, 0, 100, 0),
+('14117145', 'IF3001', 70, 80, 75, 80, 0, 87, 78);
 
 --
 -- Indexes for dumped tables

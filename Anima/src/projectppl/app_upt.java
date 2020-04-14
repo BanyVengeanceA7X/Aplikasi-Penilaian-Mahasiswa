@@ -6,6 +6,7 @@
 package projectppl;
 
 import AppPackage.AnimationClass;
+import Database.Koneksi;
 import InputMahasiswa.DaftarMahasiswa;
 import InputMahasiswa.Mahasiswa;
 import InputMahasiswa.TableMhs;
@@ -13,9 +14,11 @@ import InputMahasiswa.Tablemhssemua;
 import InputNilai.DaftarNilai;
 import InputNilai.Nilai;
 import InputNilai.TableNilai;
+import InputNilai.Tablepdf;
 import Inputmatkul.TableMatkul;
 import databasekonek.koneksi;
 import jadwalmatkul.jadwalmatkul;
+import java.awt.BorderLayout;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,11 +26,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.MessageFormat;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.category.DefaultCategoryDataset;
 /**
  *
  * @author BANY A7X
@@ -100,6 +109,7 @@ public class app_upt extends javax.swing.JFrame {
          setModel();
         pilihmatkul.setModel(model1);
         pilihmatkul1.setModel(model1);
+        pilihmatkul2.setModel(model1);
     }
 
     /**
@@ -423,6 +433,7 @@ public class app_upt extends javax.swing.JFrame {
         search2 = new javax.swing.JLabel();
         searchfix = new javax.swing.JTextField();
         button_input5 = new javax.swing.JLabel();
+        COBA = new javax.swing.JTextField();
         konten_mahasiswa = new javax.swing.JPanel();
         cardlayout_kiri1 = new javax.swing.JPanel();
         fresh_open1 = new javax.swing.JPanel();
@@ -546,12 +557,36 @@ public class app_upt extends javax.swing.JFrame {
         searchkan2 = new javax.swing.JLabel();
         search3 = new javax.swing.JLabel();
         searchfix1 = new javax.swing.JTextField();
-        konten_mahasiswa3 = new javax.swing.JPanel();
+        COBA1 = new javax.swing.JTextField();
+        print = new javax.swing.JLabel();
+        konten_nilai = new javax.swing.JPanel();
         cardlayout_kiri4 = new javax.swing.JPanel();
         fresh_open4 = new javax.swing.JPanel();
         text_matkul8 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tablenilai = new javax.swing.JTable();
+        konten_pdf = new javax.swing.JPanel();
+        cardlayout_kiri6 = new javax.swing.JPanel();
+        fresh_open6 = new javax.swing.JPanel();
+        text_matkul11 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tablepdf = new javax.swing.JTable();
+        laman_grafik = new javax.swing.JPanel();
+        bariskedua6 = new javax.swing.JPanel();
+        jLabel69 = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        menu5 = new javax.swing.JPanel();
+        text_matkul9 = new javax.swing.JLabel();
+        field_pukul5 = new javax.swing.JLabel();
+        pilihmatkul2 = new javax.swing.JComboBox<>();
+        iconcari2 = new javax.swing.JLabel();
+        searchfix2 = new javax.swing.JTextField();
+        konten_mahasiswa4 = new javax.swing.JPanel();
+        cardlayout_kiri5 = new javax.swing.JPanel();
+        fresh_open5 = new javax.swing.JPanel();
+        text_matkul10 = new javax.swing.JLabel();
+        panelgrafik = new javax.swing.JPanel();
 
         jPanel2.setBackground(new java.awt.Color(70, 130, 180));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -618,6 +653,11 @@ public class app_upt extends javax.swing.JFrame {
 
         menu_grafik.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         menu_grafik.setText("Grafik dan Nilai Akhir");
+        menu_grafik.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu_grafikMouseClicked(evt);
+            }
+        });
         navigasi1.add(menu_grafik, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 160, 30));
 
         jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_halaman_awal/plus.png"))); // NOI18N
@@ -2172,6 +2212,8 @@ public class app_upt extends javax.swing.JFrame {
             }
         });
 
+        COBA.setText("Nama Mata Kuliah");
+
         javax.swing.GroupLayout menu1Layout = new javax.swing.GroupLayout(menu1);
         menu1.setLayout(menu1Layout);
         menu1Layout.setHorizontalGroup(
@@ -2183,54 +2225,60 @@ public class app_upt extends javax.swing.JFrame {
                 .addComponent(pilihmatkul, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(iconcari)
-                .addGap(216, 216, 216)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(COBA, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(searchfix, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(28, 28, 28)
                 .addComponent(search2)
-                .addGap(55, 55, 55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(button_input1)
-                .addGap(33, 33, 33)
+                .addGap(38, 38, 38)
                 .addComponent(button_input5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addComponent(field_pukul1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
             .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(menu1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu1Layout.createSequentialGroup()
+                    .addContainerGap(628, Short.MAX_VALUE)
                     .addComponent(searchkan1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(567, Short.MAX_VALUE)))
         );
         menu1Layout.setVerticalGroup(
             menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu1Layout.createSequentialGroup()
                 .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(pilihmatkul, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(text_matkul1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(iconcari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(search2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menu1Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(button_input5)
-                                    .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(field_pukul1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(menu1Layout.createSequentialGroup()
-                                            .addGap(5, 5, 5)
-                                            .addComponent(button_input1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(menu1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(searchfix, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pilihmatkul)
+                            .addComponent(text_matkul1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(iconcari, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(field_pukul1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(button_input5))
+                            .addGroup(menu1Layout.createSequentialGroup()
+                                .addComponent(button_input1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)))
+                        .addGap(5, 5, 5))
+                    .addGroup(menu1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(search2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(menu1Layout.createSequentialGroup()
+                                .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(COBA, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(searchfix, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(menu1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu1Layout.createSequentialGroup()
+                    .addContainerGap(20, Short.MAX_VALUE)
                     .addComponent(searchkan1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(21, Short.MAX_VALUE)))
         );
 
         laman_mahasiswa.add(menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1365, 70));
@@ -3113,6 +3161,15 @@ public class app_upt extends javax.swing.JFrame {
 
         searchfix1.setBorder(null);
 
+        COBA1.setText("Nama Mata Kuliah");
+
+        print.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_print/print.png"))); // NOI18N
+        print.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                printMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout menu4Layout = new javax.swing.GroupLayout(menu4);
         menu4.setLayout(menu4Layout);
         menu4Layout.setHorizontalGroup(
@@ -3124,18 +3181,22 @@ public class app_upt extends javax.swing.JFrame {
                 .addComponent(pilihmatkul1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(iconcari1)
-                .addGap(216, 216, 216)
-                .addComponent(searchfix1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(COBA1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(searchfix1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(search3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
+                .addGap(56, 56, 56)
+                .addComponent(print)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
                 .addComponent(field_pukul4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
             .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(menu4Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu4Layout.createSequentialGroup()
+                    .addContainerGap(655, Short.MAX_VALUE)
                     .addComponent(searchkan2)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(540, Short.MAX_VALUE)))
         );
         menu4Layout.setVerticalGroup(
             menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3150,24 +3211,27 @@ public class app_upt extends javax.swing.JFrame {
                             .addComponent(search3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menu4Layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
-                                .addComponent(field_pukul4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(print)
+                                    .addComponent(field_pukul4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(menu4Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(searchfix1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchfix1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(COBA1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(menu4Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu4Layout.createSequentialGroup()
+                    .addContainerGap(20, Short.MAX_VALUE)
                     .addComponent(searchkan2)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(21, Short.MAX_VALUE)))
         );
 
         laman_nilai.add(menu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1365, 70));
 
-        konten_mahasiswa3.setBackground(new java.awt.Color(250, 250, 250));
-        konten_mahasiswa3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        konten_nilai.setBackground(new java.awt.Color(250, 250, 250));
+        konten_nilai.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cardlayout_kiri4.setBackground(new java.awt.Color(255, 255, 255));
         cardlayout_kiri4.setLayout(new java.awt.CardLayout());
@@ -3241,9 +3305,9 @@ public class app_upt extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addComponent(text_matkul8))
                     .addGroup(fresh_open4Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 1181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                        .addGap(210, 210, 210)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 868, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         fresh_open4Layout.setVerticalGroup(
             fresh_open4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3256,11 +3320,270 @@ public class app_upt extends javax.swing.JFrame {
 
         cardlayout_kiri4.add(fresh_open4, "card2");
 
-        konten_mahasiswa3.add(cardlayout_kiri4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1340, 590));
+        konten_nilai.add(cardlayout_kiri4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1340, 590));
 
-        laman_nilai.add(konten_mahasiswa3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1365, 610));
+        laman_nilai.add(konten_nilai, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1365, 610));
+
+        konten_pdf.setBackground(new java.awt.Color(250, 250, 250));
+        konten_pdf.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cardlayout_kiri6.setBackground(new java.awt.Color(255, 255, 255));
+        cardlayout_kiri6.setLayout(new java.awt.CardLayout());
+
+        fresh_open6.setBackground(new java.awt.Color(255, 255, 255));
+        fresh_open6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        text_matkul11.setFont(new java.awt.Font("SansSerif", 0, 23)); // NOI18N
+        text_matkul11.setText("Daftar Mahasiswa ");
+        text_matkul11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        text_matkul11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        tablepdf.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "NIM", "Nama", "Kode Kelas", "Mata Kuliah", "SKS", "Tugas Besar"
+            }
+        ));
+        tablepdf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablepdfMouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(tablepdf);
+        if (tablepdf.getColumnModel().getColumnCount() > 0) {
+            tablepdf.getColumnModel().getColumn(0).setResizable(false);
+            tablepdf.getColumnModel().getColumn(1).setResizable(false);
+            tablepdf.getColumnModel().getColumn(2).setResizable(false);
+            tablepdf.getColumnModel().getColumn(3).setResizable(false);
+            tablepdf.getColumnModel().getColumn(4).setResizable(false);
+            tablepdf.getColumnModel().getColumn(5).setResizable(false);
+        }
+
+        javax.swing.GroupLayout fresh_open6Layout = new javax.swing.GroupLayout(fresh_open6);
+        fresh_open6.setLayout(fresh_open6Layout);
+        fresh_open6Layout.setHorizontalGroup(
+            fresh_open6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fresh_open6Layout.createSequentialGroup()
+                .addGroup(fresh_open6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fresh_open6Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(text_matkul11))
+                    .addGroup(fresh_open6Layout.createSequentialGroup()
+                        .addGap(393, 393, 393)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(488, Short.MAX_VALUE))
+        );
+        fresh_open6Layout.setVerticalGroup(
+            fresh_open6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fresh_open6Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(text_matkul11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
+        );
+
+        cardlayout_kiri6.add(fresh_open6, "card2");
+
+        konten_pdf.add(cardlayout_kiri6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1340, 590));
+
+        laman_nilai.add(konten_pdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1365, 610));
 
         Laman.add(laman_nilai, "card3");
+
+        laman_grafik.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bariskedua6.setBackground(new java.awt.Color(255, 255, 255));
+        bariskedua6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel70.setFont(new java.awt.Font("SansSerif", 0, 23)); // NOI18N
+        jLabel70.setText("Tools Dosen Institut Teknologi Sumatera");
+        jLabel70.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        jLabel71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/logoitera.png"))); // NOI18N
+
+        javax.swing.GroupLayout bariskedua6Layout = new javax.swing.GroupLayout(bariskedua6);
+        bariskedua6.setLayout(bariskedua6Layout);
+        bariskedua6Layout.setHorizontalGroup(
+            bariskedua6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bariskedua6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel71)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel70)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel69)
+                .addContainerGap(821, Short.MAX_VALUE))
+        );
+        bariskedua6Layout.setVerticalGroup(
+            bariskedua6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bariskedua6Layout.createSequentialGroup()
+                .addGroup(bariskedua6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel69)
+                    .addGroup(bariskedua6Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel71))
+                    .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        laman_grafik.add(bariskedua6, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 1, 1290, 55));
+
+        menu5.setBackground(new java.awt.Color(255, 255, 255));
+
+        text_matkul9.setFont(new java.awt.Font("SansSerif", 0, 23)); // NOI18N
+        text_matkul9.setText("Mata Kuliah : ");
+        text_matkul9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        field_pukul5.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        field_pukul5.setText("  PUKUL : ");
+        field_pukul5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        field_pukul5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                field_pukul5MouseClicked(evt);
+            }
+        });
+
+        pilihmatkul2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pilihmatkul2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pilihmatkul2ActionPerformed(evt);
+            }
+        });
+
+        iconcari2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/search_find_lupa_21889.png"))); // NOI18N
+        iconcari2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconcari2MouseClicked(evt);
+            }
+        });
+
+        searchfix2.setBorder(null);
+
+        javax.swing.GroupLayout menu5Layout = new javax.swing.GroupLayout(menu5);
+        menu5.setLayout(menu5Layout);
+        menu5Layout.setHorizontalGroup(
+            menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(text_matkul9, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pilihmatkul2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(iconcari2)
+                .addGap(216, 216, 216)
+                .addComponent(searchfix2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 424, Short.MAX_VALUE)
+                .addComponent(field_pukul5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        menu5Layout.setVerticalGroup(
+            menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu5Layout.createSequentialGroup()
+                .addGroup(menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menu5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pilihmatkul2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(text_matkul9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(iconcari2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menu5Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(field_pukul5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(menu5Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(searchfix2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        laman_grafik.add(menu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1365, 70));
+
+        konten_mahasiswa4.setBackground(new java.awt.Color(250, 250, 250));
+        konten_mahasiswa4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cardlayout_kiri5.setBackground(new java.awt.Color(255, 255, 255));
+        cardlayout_kiri5.setLayout(new java.awt.CardLayout());
+
+        fresh_open5.setBackground(new java.awt.Color(255, 255, 255));
+        fresh_open5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        text_matkul10.setFont(new java.awt.Font("SansSerif", 0, 23)); // NOI18N
+        text_matkul10.setText("Grafik Nilai");
+        text_matkul10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        text_matkul10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout panelgrafikLayout = new javax.swing.GroupLayout(panelgrafik);
+        panelgrafik.setLayout(panelgrafikLayout);
+        panelgrafikLayout.setHorizontalGroup(
+            panelgrafikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 805, Short.MAX_VALUE)
+        );
+        panelgrafikLayout.setVerticalGroup(
+            panelgrafikLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 439, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout fresh_open5Layout = new javax.swing.GroupLayout(fresh_open5);
+        fresh_open5.setLayout(fresh_open5Layout);
+        fresh_open5Layout.setHorizontalGroup(
+            fresh_open5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fresh_open5Layout.createSequentialGroup()
+                .addGroup(fresh_open5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fresh_open5Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(text_matkul10))
+                    .addGroup(fresh_open5Layout.createSequentialGroup()
+                        .addGap(303, 303, 303)
+                        .addComponent(panelgrafik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(230, Short.MAX_VALUE))
+        );
+        fresh_open5Layout.setVerticalGroup(
+            fresh_open5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fresh_open5Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(text_matkul10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(panelgrafik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+
+        cardlayout_kiri5.add(fresh_open5, "card2");
+
+        konten_mahasiswa4.add(cardlayout_kiri5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1340, 590));
+
+        laman_grafik.add(konten_mahasiswa4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1365, 610));
+
+        Laman.add(laman_grafik, "card3");
 
         getContentPane().add(Laman, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 31, 1365, 740));
 
@@ -3360,7 +3683,7 @@ public class app_upt extends javax.swing.JFrame {
         fresh_open.setVisible(false);
         tabel.setVisible(true);
         show_komponen.setVisible(false);
-        
+        laman_grafik.setVisible(false);
         TableMatkul a = new TableMatkul(tablematkul);
         lebarKolomMatkul();
         a.getData();
@@ -3373,7 +3696,8 @@ public class app_upt extends javax.swing.JFrame {
         laman_jadwal.setVisible(false);
         laman_nilai.setVisible(false);
         laman_matkul.setVisible(false);
-        
+        laman_grafik.setVisible(false);
+        setText();
         TableMhs a = new TableMhs(tablemhs);
         lebarKolomMhs();
         a.getDataMhs(pilihmatkul.getSelectedItem().toString());
@@ -3400,6 +3724,26 @@ public class app_upt extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery("select kode_mk from matakuliah");
             while(rs.next()){
                 model1.addElement(rs.getString(1));
+                
+            }
+        } catch (Exception e) {
+            System.out.println("gagal");
+        }
+    }
+    public final void setText(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            String url = "jdbc:mysql://localhost/anima"; //disesuaikan
+            String user="root";//disesuaikan
+            String pass="";//disesuaikan
+            Connection koneksi = DriverManager.getConnection(url,user,pass);
+
+            Statement st = koneksi.createStatement();
+            ResultSet rs = st.executeQuery("select kode_mk,nama_mk from matakuliah WHERE kode_mk='"+pilihmatkul1.getSelectedItem().toString()+"';");
+            while(rs.next()){
+                String A = rs.getString("nama_mk");
+                COBA.setText(A);
+                COBA1.setText(A);
             }
         } catch (Exception e) {
             System.out.println("gagal");
@@ -3570,29 +3914,52 @@ public class app_upt extends javax.swing.JFrame {
         tablenilai.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF); 
       
         column = tablenilai.getColumnModel().getColumn(0);
-        column.setPreferredWidth(120);
+        column.setPreferredWidth(110);
         column = tablenilai.getColumnModel().getColumn(1); 
-        column.setPreferredWidth(212); 
+        column.setPreferredWidth(200);        
         column = tablenilai.getColumnModel().getColumn(2); 
-        column.setPreferredWidth(212); 
+        column.setPreferredWidth(55); 
         column = tablenilai.getColumnModel().getColumn(3); 
-        column.setPreferredWidth(70); 
+        column.setPreferredWidth(55); 
         column = tablenilai.getColumnModel().getColumn(4); 
-        column.setPreferredWidth(70); 
+        column.setPreferredWidth(70);
         column = tablenilai.getColumnModel().getColumn(5); 
-        column.setPreferredWidth(70); 
+        column.setPreferredWidth(60); 
         column = tablenilai.getColumnModel().getColumn(6); 
-        column.setPreferredWidth(70); 
+        column.setPreferredWidth(55); 
         column = tablenilai.getColumnModel().getColumn(7); 
-        column.setPreferredWidth(70); 
-        column = tablenilai.getColumnModel().getColumn(8); 
-        column.setPreferredWidth(70); 
+        column.setPreferredWidth(55); 
+        column = tablenilai.getColumnModel().getColumn(8);
+        column.setPreferredWidth(70);
         column = tablenilai.getColumnModel().getColumn(9);
         column.setPreferredWidth(70);
         column = tablenilai.getColumnModel().getColumn(10);
-        column.setPreferredWidth(70);
-        column = tablenilai.getColumnModel().getColumn(11);
-        column.setPreferredWidth(70);
+        column.setPreferredWidth(61);
+    }
+    public void lebarKolomPDF(){ 
+        TableColumn column;
+        tablepdf.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF); 
+      
+        column = tablepdf.getColumnModel().getColumn(0);
+        column.setPreferredWidth(80);       
+        column = tablepdf.getColumnModel().getColumn(1); 
+        column.setPreferredWidth(45); 
+        column = tablepdf.getColumnModel().getColumn(2); 
+        column.setPreferredWidth(39); 
+        column = tablepdf.getColumnModel().getColumn(3); 
+        column.setPreferredWidth(38);
+        column = tablepdf.getColumnModel().getColumn(4); 
+        column.setPreferredWidth(46); 
+        column = tablepdf.getColumnModel().getColumn(5); 
+        column.setPreferredWidth(39); 
+        column = tablepdf.getColumnModel().getColumn(6); 
+        column.setPreferredWidth(39); 
+        column = tablepdf.getColumnModel().getColumn(7);
+        column.setPreferredWidth(37);
+        column = tablepdf.getColumnModel().getColumn(8);
+        column.setPreferredWidth(43);
+        column = tablepdf.getColumnModel().getColumn(9);
+        column.setPreferredWidth(44);
     }
     public void lebarKolomMatkul(){ 
         TableColumn column;
@@ -3620,9 +3987,12 @@ public class app_upt extends javax.swing.JFrame {
         HalamanAwal.setVisible(false);
         laman_mahasiswa.setVisible(false);
         laman_mahasiswa1.setVisible(false);
-        
+        laman_grafik.setVisible(false);
+        konten_nilai.setVisible(true);
+        konten_pdf.setVisible(false);
         TableNilai a = new TableNilai(tablenilai);
         lebarKolomNilai();
+        setText();
         a.getKlik();
         a.getKlik2();
         a.getData(pilihmatkul1.getSelectedItem().toString());
@@ -3633,9 +4003,11 @@ public class app_upt extends javax.swing.JFrame {
     }//GEN-LAST:event_pilihmatkulActionPerformed
 
     private void iconcariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconcariMouseClicked
+        setText();
         TableMhs a = new TableMhs(tablemhs);
         lebarKolomMhs();
         a.getDataMhs(pilihmatkul.getSelectedItem().toString());
+        
     }//GEN-LAST:event_iconcariMouseClicked
 
     private void button_input2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_input2MouseClicked
@@ -3677,7 +4049,7 @@ public class app_upt extends javax.swing.JFrame {
         laman_matkul.setVisible(false);
         laman_nilai.setVisible(false);
         laman_mahasiswa1.setVisible(true);
-        
+        laman_grafik.setVisible(false);
         Tablemhssemua a = new Tablemhssemua(tablemhs1);
         //lebarKolomMhs();
         a.getData();
@@ -3691,7 +4063,7 @@ public class app_upt extends javax.swing.JFrame {
         laman_jadwal.setVisible(true);
         HalamanAwal.setVisible(false);
         laman_mahasiswa.setVisible(false);
-        
+        laman_grafik.setVisible(false);
         jadwalmatkul a = new jadwalmatkul(tablejadwal);
         lebarKolom();
         a.getData();
@@ -4071,6 +4443,7 @@ public class app_upt extends javax.swing.JFrame {
     private void iconcari1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconcari1MouseClicked
         TableNilai a = new TableNilai(tablenilai);
         lebarKolomNilai();
+        setText();
         a.getData(pilihmatkul1.getSelectedItem().toString());
     }//GEN-LAST:event_iconcari1MouseClicked
 
@@ -4081,6 +4454,180 @@ public class app_upt extends javax.swing.JFrame {
     private void tablenilaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablenilaiMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tablenilaiMouseClicked
+
+    private void field_pukul5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_field_pukul5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field_pukul5MouseClicked
+
+    private void pilihmatkul2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihmatkul2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pilihmatkul2ActionPerformed
+
+    private void iconcari2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconcari2MouseClicked
+        try {
+            Connection conn=(Connection)koneksi.getKoneksi();
+            Statement st1 = (Statement)conn.createStatement();
+            Statement st2 = (Statement)conn.createStatement();
+            Statement st3 = (Statement)conn.createStatement();
+            Statement st4 = (Statement)conn.createStatement();
+            Statement st5 = (Statement)conn.createStatement();
+            Statement st6 = (Statement)conn.createStatement();
+            Statement st7 = (Statement)conn.createStatement();
+            Statement st8 = (Statement)conn.createStatement();
+                        
+            String cari1 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='A' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari2 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='AB' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari3 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='B' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari4 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='BC' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari5 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='C' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari6 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='D' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari7 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='E' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String carijudul = "select nama_mk from matakuliah WHERE KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            
+            ResultSet rs1 = st1.executeQuery(cari1);
+            ResultSet rs2 = st2.executeQuery(cari2);
+            ResultSet rs3 = st3.executeQuery(cari3);
+            ResultSet rs4 = st4.executeQuery(cari4);
+            ResultSet rs5 = st5.executeQuery(cari5);
+            ResultSet rs6 = st6.executeQuery(cari6);
+            ResultSet rs7 = st7.executeQuery(cari7);
+            ResultSet rs8 = st8.executeQuery(carijudul);
+            
+            while(rs1.next()&& rs2.next() && rs3.next() && rs4.next()&& rs5.next()&& rs6.next()&& rs7.next()&& rs8.next()){
+                int count1=rs1.getInt("count");  
+                int count2=rs2.getInt("count");   
+                int count3=rs3.getInt("count");  
+                int count4=rs4.getInt("count");   
+                int count5=rs5.getInt("count");  
+                int count6=rs6.getInt("count");   
+                int count7=rs7.getInt("count");  
+                String judul=rs8.getString("nama_mk");                
+                
+                DefaultCategoryDataset piedata = new DefaultCategoryDataset();
+                piedata.setValue(count1,"Grafik","A");
+                piedata.setValue(count2,"Grafik","AB");
+                piedata.setValue(count3,"Grafik","B");
+                piedata.setValue(count4,"Grafik","BC");
+                piedata.setValue(count5,"Grafik","C");
+                piedata.setValue(count6,"Grafik","D");
+                piedata.setValue(count7,"Grafik","E");
+                
+                JFreeChart chart = ChartFactory.createLineChart3D(judul,"Grade","Frekuensi",piedata);
+                panelgrafik.setLayout(new java.awt.BorderLayout());
+                ChartPanel CF = new ChartPanel(chart);
+                panelgrafik.add(CF,BorderLayout.CENTER);
+                panelgrafik.validate();
+                //ChartFrame frame = new ChartFrame("framechart",chart);
+                //frame.setVisible(true);
+                //frame.setBounds(500,200, 500, 500);
+            }
+        } catch (SQLException ex) {
+        //    java.util.logging.Logger.getLogger(chart.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_iconcari2MouseClicked
+
+    private void menu_grafikMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_grafikMouseClicked
+        nav.setVisible(true);
+        animasi_slide.jTextAreaXLeft(0, -230, 20, 10, nav);
+        laman_matkul.setVisible(false);
+        laman_jadwal.setVisible(false);
+        laman_nilai.setVisible(false);
+        HalamanAwal.setVisible(false);
+        laman_mahasiswa.setVisible(false);
+        laman_mahasiswa1.setVisible(false);
+        fresh_open.setVisible(false);
+        tabel.setVisible(false);
+        show_komponen.setVisible(false);
+        laman_grafik.setVisible(true);
+        
+        try {
+            Connection conn=(Connection)koneksi.getKoneksi();
+            Statement st1 = (Statement)conn.createStatement();
+            Statement st2 = (Statement)conn.createStatement();
+            Statement st3 = (Statement)conn.createStatement();
+            Statement st4 = (Statement)conn.createStatement();
+            Statement st5 = (Statement)conn.createStatement();
+            Statement st6 = (Statement)conn.createStatement();
+            Statement st7 = (Statement)conn.createStatement();
+            Statement st8 = (Statement)conn.createStatement();
+                        
+            String cari1 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='A' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari2 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='AB' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari3 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='B' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari4 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='BC' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari5 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='C' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari6 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='D' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String cari7 = "SELECT COUNT(GRADE) as count FROM konversi_NA NA WHERE GRADE='E' && KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            String carijudul = "select nama_mk from matakuliah WHERE KODE_MK='"+pilihmatkul2.getSelectedItem().toString()+"';";
+            
+            ResultSet rs1 = st1.executeQuery(cari1);
+            ResultSet rs2 = st2.executeQuery(cari2);
+            ResultSet rs3 = st3.executeQuery(cari3);
+            ResultSet rs4 = st4.executeQuery(cari4);
+            ResultSet rs5 = st5.executeQuery(cari5);
+            ResultSet rs6 = st6.executeQuery(cari6);
+            ResultSet rs7 = st7.executeQuery(cari7);
+            ResultSet rs8 = st8.executeQuery(carijudul);
+            
+            while(rs1.next()&& rs2.next() && rs3.next() && rs4.next()&& rs5.next()&& rs6.next()&& rs7.next()&& rs8.next()){
+                int count1=rs1.getInt("count");  
+                int count2=rs2.getInt("count");   
+                int count3=rs3.getInt("count");  
+                int count4=rs4.getInt("count");   
+                int count5=rs5.getInt("count");  
+                int count6=rs6.getInt("count");   
+                int count7=rs7.getInt("count");  
+                String judul=rs8.getString("nama_mk");                
+                
+                DefaultCategoryDataset piedata = new DefaultCategoryDataset();
+                piedata.setValue(count1,"Grafik","A");
+                piedata.setValue(count2,"Grafik","AB");
+                piedata.setValue(count3,"Grafik","B");
+                piedata.setValue(count4,"Grafik","BC");
+                piedata.setValue(count5,"Grafik","C");
+                piedata.setValue(count6,"Grafik","D");
+                piedata.setValue(count7,"Grafik","E");
+                
+                JFreeChart chart = ChartFactory.createLineChart3D(judul,"Grade","Frekuensi",piedata);
+                panelgrafik.setLayout(new java.awt.BorderLayout());
+                ChartPanel CF = new ChartPanel(chart);
+                panelgrafik.add(CF,BorderLayout.CENTER);
+                panelgrafik.validate();
+                //ChartFrame frame = new ChartFrame("framechart",chart);
+                //frame.setVisible(true);
+                //frame.setBounds(500,200, 500, 500);
+            }
+        } catch (SQLException ex) {
+        //    java.util.logging.Logger.getLogger(chart.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_menu_grafikMouseClicked
+
+    private void printMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printMouseClicked
+        konten_nilai.setVisible(false);
+        konten_pdf.setVisible(true);
+        
+        Tablepdf a = new Tablepdf(tablepdf);
+        lebarKolomPDF();        
+        a.getData(pilihmatkul1.getSelectedItem().toString());
+               
+        MessageFormat header = new MessageFormat ("Nilai Akhir Matakuliah "+ COBA1.getText());
+        MessageFormat footer = new MessageFormat ("Page{0,number,integer}");
+        try{
+            tablepdf.print(JTable.PrintMode.NORMAL, header, footer);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Print Data Gagal. "+e.getMessage());
+        }
+        
+        konten_nilai.setVisible(true);
+        konten_pdf.setVisible(false);
+        TableNilai b = new TableNilai(tablenilai);
+        lebarKolomNilai();        
+        b.getData(pilihmatkul1.getSelectedItem().toString());
+    }//GEN-LAST:event_printMouseClicked
+
+    private void tablepdfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablepdfMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablepdfMouseClicked
 
     /**
      * @param args the command line arguments
@@ -4128,6 +4675,8 @@ public class app_upt extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField COBA;
+    private javax.swing.JTextField COBA1;
     private javax.swing.JLabel DELETE_mhs4;
     private javax.swing.JLabel DELETE_mhs5;
     private javax.swing.JPanel HalamanAwal;
@@ -4138,6 +4687,7 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JPanel bariskedua3;
     private javax.swing.JPanel bariskedua4;
     private javax.swing.JPanel bariskedua5;
+    private javax.swing.JPanel bariskedua6;
     private javax.swing.JPanel blank;
     private javax.swing.JPanel blank1;
     private javax.swing.JPanel blank2;
@@ -4170,6 +4720,8 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JPanel cardlayout_kiri2;
     private javax.swing.JPanel cardlayout_kiri3;
     private javax.swing.JPanel cardlayout_kiri4;
+    private javax.swing.JPanel cardlayout_kiri5;
+    private javax.swing.JPanel cardlayout_kiri6;
     private javax.swing.JComboBox<String> cbx_komponen2;
     private javax.swing.JLabel field_index1;
     private javax.swing.JLabel field_index10;
@@ -4209,6 +4761,7 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel field_pukul2;
     private javax.swing.JLabel field_pukul3;
     private javax.swing.JLabel field_pukul4;
+    private javax.swing.JLabel field_pukul5;
     private javax.swing.JLabel field_quiz;
     private javax.swing.JLabel field_quiz1;
     private javax.swing.JLabel field_tambahan;
@@ -4231,10 +4784,13 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JPanel fresh_open2;
     private javax.swing.JPanel fresh_open3;
     private javax.swing.JPanel fresh_open4;
+    private javax.swing.JPanel fresh_open5;
+    private javax.swing.JPanel fresh_open6;
     private javax.swing.JLabel hari_mk;
     private javax.swing.JLabel hari_mk1;
     private javax.swing.JLabel iconcari;
     private javax.swing.JLabel iconcari1;
+    private javax.swing.JLabel iconcari2;
     private javax.swing.JLabel index_A;
     private javax.swing.JLabel index_A1;
     private javax.swing.JLabel index_B;
@@ -4349,7 +4905,10 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -4362,6 +4921,7 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -4391,9 +4951,12 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JPanel konten_mahasiswa;
     private javax.swing.JPanel konten_mahasiswa1;
     private javax.swing.JPanel konten_mahasiswa2;
-    private javax.swing.JPanel konten_mahasiswa3;
+    private javax.swing.JPanel konten_mahasiswa4;
     private javax.swing.JPanel konten_matkul;
+    private javax.swing.JPanel konten_nilai;
+    private javax.swing.JPanel konten_pdf;
     private javax.swing.JPanel laman_edit;
+    private javax.swing.JPanel laman_grafik;
     private javax.swing.JPanel laman_input;
     private javax.swing.JPanel laman_input1;
     private javax.swing.JPanel laman_input2;
@@ -4440,6 +5003,7 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JPanel menu2;
     private javax.swing.JPanel menu3;
     private javax.swing.JPanel menu4;
+    private javax.swing.JPanel menu5;
     private javax.swing.JLabel menu_grafik;
     private javax.swing.JLabel menu_lihatnilai;
     private javax.swing.JLabel menu_mhs;
@@ -4450,6 +5014,7 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JScrollPane nav;
     private javax.swing.JButton navbar;
     private javax.swing.JPanel navigasi1;
+    private javax.swing.JPanel panelgrafik;
     private javax.swing.JLabel persen1;
     private javax.swing.JLabel persen10;
     private javax.swing.JLabel persen11;
@@ -4473,6 +5038,8 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel persen9;
     private javax.swing.JComboBox<String> pilihmatkul;
     private javax.swing.JComboBox<String> pilihmatkul1;
+    private javax.swing.JComboBox<String> pilihmatkul2;
+    private javax.swing.JLabel print;
     private javax.swing.JLabel pukul;
     private javax.swing.JLabel r;
     private javax.swing.JTextField search;
@@ -4480,6 +5047,7 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel search3;
     private javax.swing.JTextField searchfix;
     private javax.swing.JTextField searchfix1;
+    private javax.swing.JTextField searchfix2;
     private javax.swing.JLabel searchkan;
     private javax.swing.JLabel searchkan1;
     private javax.swing.JLabel searchkan2;
@@ -4513,12 +5081,15 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JTable tablemhs;
     private javax.swing.JTable tablemhs1;
     private javax.swing.JTable tablenilai;
+    private javax.swing.JTable tablepdf;
     private javax.swing.JPanel tampilan_awal;
     private javax.swing.JLabel text1;
     private javax.swing.JLabel text2;
     private javax.swing.JLabel text3;
     private javax.swing.JLabel text_matkul;
     private javax.swing.JLabel text_matkul1;
+    private javax.swing.JLabel text_matkul10;
+    private javax.swing.JLabel text_matkul11;
     private javax.swing.JLabel text_matkul2;
     private javax.swing.JLabel text_matkul3;
     private javax.swing.JLabel text_matkul4;
@@ -4526,6 +5097,7 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel text_matkul6;
     private javax.swing.JLabel text_matkul7;
     private javax.swing.JLabel text_matkul8;
+    private javax.swing.JLabel text_matkul9;
     private javax.swing.JLabel text_prak;
     private javax.swing.JLabel text_prak1;
     private javax.swing.JLabel text_quiz;
