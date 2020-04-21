@@ -106,10 +106,10 @@ public class app_upt extends javax.swing.JFrame {
     
     public app_upt() {
         initComponents();
-         setModel();
-        pilihmatkul.setModel(model1);
-        pilihmatkul1.setModel(model1);
-        pilihmatkul2.setModel(model1);
+//        setModel();
+//        pilihmatkul.setModel(model1);
+//        pilihmatkul1.setModel(model1);
+//        pilihmatkul2.setModel(model1);
     }
 
     /**
@@ -440,6 +440,8 @@ public class app_upt extends javax.swing.JFrame {
         text_matkul2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablemhs = new javax.swing.JTable();
+        jLabel73 = new javax.swing.JLabel();
+        sorting1 = new javax.swing.JComboBox<>();
         cardlayout_kanan1 = new javax.swing.JPanel();
         card_atas1 = new javax.swing.JPanel();
         blank1 = new javax.swing.JPanel();
@@ -555,8 +557,8 @@ public class app_upt extends javax.swing.JFrame {
         pilihmatkul1 = new javax.swing.JComboBox<>();
         iconcari1 = new javax.swing.JLabel();
         searchkan2 = new javax.swing.JLabel();
-        search3 = new javax.swing.JLabel();
-        searchfix1 = new javax.swing.JTextField();
+        carimhs_nilai = new javax.swing.JLabel();
+        searchmhsnilai = new javax.swing.JTextField();
         COBA1 = new javax.swing.JTextField();
         print = new javax.swing.JLabel();
         konten_nilai = new javax.swing.JPanel();
@@ -565,6 +567,8 @@ public class app_upt extends javax.swing.JFrame {
         text_matkul8 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tablenilai = new javax.swing.JTable();
+        jLabel72 = new javax.swing.JLabel();
+        sorting = new javax.swing.JComboBox<>();
         konten_pdf = new javax.swing.JPanel();
         cardlayout_kiri6 = new javax.swing.JPanel();
         fresh_open6 = new javax.swing.JPanel();
@@ -2348,14 +2352,29 @@ public class app_upt extends javax.swing.JFrame {
             tablemhs.getColumnModel().getColumn(5).setResizable(false);
         }
 
+        jLabel73.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel73.setText("Sort By :");
+
+        sorting1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIM", "NAMA" }));
+        sorting1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                sorting1ItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout fresh_open1Layout = new javax.swing.GroupLayout(fresh_open1);
         fresh_open1.setLayout(fresh_open1Layout);
         fresh_open1Layout.setHorizontalGroup(
             fresh_open1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fresh_open1Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addGroup(fresh_open1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(text_matkul2)
+                .addGroup(fresh_open1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(fresh_open1Layout.createSequentialGroup()
+                        .addComponent(text_matkul2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel73)
+                        .addGap(18, 18, 18)
+                        .addComponent(sorting1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 868, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
@@ -2363,7 +2382,11 @@ public class app_upt extends javax.swing.JFrame {
             fresh_open1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fresh_open1Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(text_matkul2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(fresh_open1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(text_matkul2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(fresh_open1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel73)
+                        .addComponent(sorting1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
         );
@@ -3152,14 +3175,14 @@ public class app_upt extends javax.swing.JFrame {
 
         searchkan2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/textfield1.jpg"))); // NOI18N
 
-        search3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/cari.PNG"))); // NOI18N
-        search3.addMouseListener(new java.awt.event.MouseAdapter() {
+        carimhs_nilai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/cari.PNG"))); // NOI18N
+        carimhs_nilai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                search3MouseClicked(evt);
+                carimhs_nilaiMouseClicked(evt);
             }
         });
 
-        searchfix1.setBorder(null);
+        searchmhsnilai.setBorder(null);
 
         COBA1.setText("Nama Mata Kuliah");
 
@@ -3184,9 +3207,9 @@ public class app_upt extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(COBA1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(searchfix1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchmhsnilai, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(search3)
+                .addComponent(carimhs_nilai)
                 .addGap(56, 56, 56)
                 .addComponent(print)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
@@ -3208,7 +3231,7 @@ public class app_upt extends javax.swing.JFrame {
                             .addComponent(pilihmatkul1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(text_matkul7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(iconcari1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(search3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(carimhs_nilai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, menu4Layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
                                 .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -3217,7 +3240,7 @@ public class app_upt extends javax.swing.JFrame {
                     .addGroup(menu4Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(searchfix1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchmhsnilai, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(COBA1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -3295,15 +3318,32 @@ public class app_upt extends javax.swing.JFrame {
             tablenilai.getColumnModel().getColumn(5).setResizable(false);
         }
 
+        jLabel72.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel72.setText("Sort By :");
+
+        sorting.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NIM", "NAMA", "GRADE", "Nilai Akhir" }));
+        sorting.setBorder(null);
+        sorting.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sorting.setOpaque(false);
+        sorting.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                sortingItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout fresh_open4Layout = new javax.swing.GroupLayout(fresh_open4);
         fresh_open4.setLayout(fresh_open4Layout);
         fresh_open4Layout.setHorizontalGroup(
             fresh_open4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fresh_open4Layout.createSequentialGroup()
-                .addGroup(fresh_open4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(fresh_open4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(fresh_open4Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(text_matkul8))
+                        .addComponent(text_matkul8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel72)
+                        .addGap(18, 18, 18)
+                        .addComponent(sorting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fresh_open4Layout.createSequentialGroup()
                         .addGap(210, 210, 210)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 868, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -3313,7 +3353,11 @@ public class app_upt extends javax.swing.JFrame {
             fresh_open4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fresh_open4Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
-                .addComponent(text_matkul8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(fresh_open4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(text_matkul8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(fresh_open4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel72)
+                        .addComponent(sorting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
         );
@@ -3697,10 +3741,19 @@ public class app_upt extends javax.swing.JFrame {
         laman_nilai.setVisible(false);
         laman_matkul.setVisible(false);
         laman_grafik.setVisible(false);
+        pilihmatkul.removeAllItems();
+        setModel();
+        if(model1.getSize()==0){
+            
+        }else if(model1.getSize()>0){
+            
+            pilihmatkul.setModel(model1);
+        }
+        
         setText();
         TableMhs a = new TableMhs(tablemhs);
         lebarKolomMhs();
-        a.getDataMhs(pilihmatkul.getSelectedItem().toString());
+        a.getDataMhs(pilihmatkul.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
     }//GEN-LAST:event_menu_mhsMouseClicked
 
     private void button_input1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_input1MouseClicked
@@ -3724,8 +3777,8 @@ public class app_upt extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery("select kode_mk from matakuliah");
             while(rs.next()){
                 model1.addElement(rs.getString(1));
-                
             }
+            
         } catch (Exception e) {
             System.out.println("gagal");
         }
@@ -3788,7 +3841,7 @@ public class app_upt extends javax.swing.JFrame {
         }
         TableMhs a = new TableMhs(tablemhs);
         lebarKolomMhs();
-        a.getDataMhs(pilihmatkul.getSelectedItem().toString());
+        a.getDataMhs(pilihmatkul.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
         input_namamhs.setText("");
         input_nim1.setText("");
     }//GEN-LAST:event_btsave_mhsMouseClicked
@@ -3831,7 +3884,7 @@ public class app_upt extends javax.swing.JFrame {
             a.getUpdateNilai(input_mhs2.getText(),komponenmhs.getSelectedItem().toString(),input_nilaimhs.getText(),pilihmatkul.getSelectedItem().toString() );
             lebarKolomMhs();
             
-            a.getDataMhs(pilihmatkul.getSelectedItem().toString());
+            a.getDataMhs(pilihmatkul.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
             input_mhs2.setText("");
             input_nilaimhs.setText("");
         }else  {
@@ -3990,12 +4043,20 @@ public class app_upt extends javax.swing.JFrame {
         laman_grafik.setVisible(false);
         konten_nilai.setVisible(true);
         konten_pdf.setVisible(false);
+        pilihmatkul1.removeAllItems();
+        setModel();
+        if(model1.getSize()==0){
+            
+        }else if(model1.getSize()>0){
+            
+            pilihmatkul1.setModel(model1);
+        }
         TableNilai a = new TableNilai(tablenilai);
         lebarKolomNilai();
         setText();
         a.getKlik();
         a.getKlik2();
-        a.getData(pilihmatkul1.getSelectedItem().toString());
+        a.getData(pilihmatkul1.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
     }//GEN-LAST:event_menu_lihatnilaiMouseClicked
 
     private void pilihmatkulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihmatkulActionPerformed
@@ -4006,7 +4067,7 @@ public class app_upt extends javax.swing.JFrame {
         setText();
         TableMhs a = new TableMhs(tablemhs);
         lebarKolomMhs();
-        a.getDataMhs(pilihmatkul.getSelectedItem().toString());
+        a.getDataMhs(pilihmatkul.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
         
     }//GEN-LAST:event_iconcariMouseClicked
 
@@ -4347,7 +4408,7 @@ public class app_upt extends javax.swing.JFrame {
             a.getHapus(input_nim4.getText(),pilihmatkul.getSelectedItem().toString());
             lebarKolomMhs();
             
-            a.getDataMhs(pilihmatkul.getSelectedItem().toString());
+            a.getDataMhs(pilihmatkul.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
             input_nim4.setText("");
           
         }else {
@@ -4444,12 +4505,14 @@ public class app_upt extends javax.swing.JFrame {
         TableNilai a = new TableNilai(tablenilai);
         lebarKolomNilai();
         setText();
-        a.getData(pilihmatkul1.getSelectedItem().toString());
+        a.getData(pilihmatkul1.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
     }//GEN-LAST:event_iconcari1MouseClicked
 
-    private void search3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_search3MouseClicked
+    private void carimhs_nilaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carimhs_nilaiMouseClicked
+        TableNilai a = new TableNilai(tablenilai);
+        lebarKolomNilai();
+        a.getCari(searchmhsnilai.getText(), pilihmatkul1.getSelectedItem().toString());
+    }//GEN-LAST:event_carimhs_nilaiMouseClicked
 
     private void tablenilaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablenilaiMouseClicked
         // TODO add your handling code here:
@@ -4504,13 +4567,13 @@ public class app_upt extends javax.swing.JFrame {
                 String judul=rs8.getString("nama_mk");                
                 
                 DefaultCategoryDataset piedata = new DefaultCategoryDataset();
-                piedata.setValue(count1,"Grafik","A");
-                piedata.setValue(count2,"Grafik","AB");
-                piedata.setValue(count3,"Grafik","B");
-                piedata.setValue(count4,"Grafik","BC");
-                piedata.setValue(count5,"Grafik","C");
-                piedata.setValue(count6,"Grafik","D");
                 piedata.setValue(count7,"Grafik","E");
+                piedata.setValue(count6,"Grafik","D");
+                piedata.setValue(count5,"Grafik","C");
+                piedata.setValue(count4,"Grafik","BC");
+                piedata.setValue(count3,"Grafik","B");
+                piedata.setValue(count2,"Grafik","AB");
+                piedata.setValue(count1,"Grafik","A");
                 
                 JFreeChart chart = ChartFactory.createLineChart3D(judul,"Grade","Frekuensi",piedata);
                 panelgrafik.setLayout(new java.awt.BorderLayout());
@@ -4539,7 +4602,12 @@ public class app_upt extends javax.swing.JFrame {
         tabel.setVisible(false);
         show_komponen.setVisible(false);
         laman_grafik.setVisible(true);
-        
+        pilihmatkul2.removeAllItems();
+        setModel();
+        if(model1.getSize()==0){
+        }else if(model1.getSize()>0){
+            pilihmatkul2.setModel(model1);
+        }
         try {
             Connection conn=(Connection)koneksi.getKoneksi();
             Statement st1 = (Statement)conn.createStatement();
@@ -4580,13 +4648,13 @@ public class app_upt extends javax.swing.JFrame {
                 String judul=rs8.getString("nama_mk");                
                 
                 DefaultCategoryDataset piedata = new DefaultCategoryDataset();
-                piedata.setValue(count1,"Grafik","A");
-                piedata.setValue(count2,"Grafik","AB");
-                piedata.setValue(count3,"Grafik","B");
-                piedata.setValue(count4,"Grafik","BC");
-                piedata.setValue(count5,"Grafik","C");
-                piedata.setValue(count6,"Grafik","D");
                 piedata.setValue(count7,"Grafik","E");
+                piedata.setValue(count6,"Grafik","D");
+                piedata.setValue(count5,"Grafik","C");
+                piedata.setValue(count4,"Grafik","BC");
+                piedata.setValue(count3,"Grafik","B");
+                piedata.setValue(count2,"Grafik","AB");
+                piedata.setValue(count1,"Grafik","A");
                 
                 JFreeChart chart = ChartFactory.createLineChart3D(judul,"Grade","Frekuensi",piedata);
                 panelgrafik.setLayout(new java.awt.BorderLayout());
@@ -4622,12 +4690,26 @@ public class app_upt extends javax.swing.JFrame {
         konten_pdf.setVisible(false);
         TableNilai b = new TableNilai(tablenilai);
         lebarKolomNilai();        
-        b.getData(pilihmatkul1.getSelectedItem().toString());
+        b.getData(pilihmatkul1.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
     }//GEN-LAST:event_printMouseClicked
 
     private void tablepdfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablepdfMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tablepdfMouseClicked
+
+    private void sortingItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sortingItemStateChanged
+        sorting.getSelectedItem().toString();
+        TableNilai a = new TableNilai(tablenilai);
+        lebarKolomNilai();
+        a.getData(pilihmatkul1.getSelectedItem().toString(), sorting.getSelectedItem().toString());
+    }//GEN-LAST:event_sortingItemStateChanged
+
+    private void sorting1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_sorting1ItemStateChanged
+        TableMhs a = new TableMhs(tablemhs);
+        lebarKolomMhs();
+        sorting1.getSelectedItem().toString();
+        a.getDataMhs(pilihmatkul.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
+    }//GEN-LAST:event_sorting1ItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -4722,6 +4804,7 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JPanel cardlayout_kiri4;
     private javax.swing.JPanel cardlayout_kiri5;
     private javax.swing.JPanel cardlayout_kiri6;
+    private javax.swing.JLabel carimhs_nilai;
     private javax.swing.JComboBox<String> cbx_komponen2;
     private javax.swing.JLabel field_index1;
     private javax.swing.JLabel field_index10;
@@ -4909,6 +4992,8 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -5044,13 +5129,12 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel r;
     private javax.swing.JTextField search;
     private javax.swing.JLabel search2;
-    private javax.swing.JLabel search3;
     private javax.swing.JTextField searchfix;
-    private javax.swing.JTextField searchfix1;
     private javax.swing.JTextField searchfix2;
     private javax.swing.JLabel searchkan;
     private javax.swing.JLabel searchkan1;
     private javax.swing.JLabel searchkan2;
+    private javax.swing.JTextField searchmhsnilai;
     private javax.swing.JLabel show_a;
     private javax.swing.JLabel show_ab;
     private javax.swing.JLabel show_b;
@@ -5075,6 +5159,8 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel showkode_mk;
     private javax.swing.JLabel sks_mk;
     private javax.swing.JLabel sks_mk1;
+    private javax.swing.JComboBox<String> sorting;
+    private javax.swing.JComboBox<String> sorting1;
     private javax.swing.JPanel tabel;
     private javax.swing.JTable tablejadwal;
     private javax.swing.JTable tablematkul;

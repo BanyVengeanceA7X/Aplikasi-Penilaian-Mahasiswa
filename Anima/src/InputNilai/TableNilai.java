@@ -28,14 +28,32 @@ public class TableNilai {
         model.addColumn("Nilai Akhir");
         model.addColumn("Grade");
     }
-    public final void getData(String key){
+    public final void getData(String key, String SORT){
         try{
-            Statement stat = (Statement) conek.GetConnection().createStatement( );
-            
-            String sql= "select nilai.nim,nama,nilai.tugas,nilai.kuis,nilai.praktikum,nilai.tubes,nilai.uts,nilai.uas,"
+            String sql = null;
+            if(SORT == "NIM"){
+                sql= "select nilai.nim,nama,nama_mk,nilai.tugas,nilai.kuis,nilai.praktikum,nilai.tubes,nilai.uts,nilai.uas,"
                     + "nilai.tambahan,na,grade from konversi_na join nilai join mahasiswa join matakuliah where nilai.nim=konversi_na.nim "
                     + "&& nilai.kode_mk=konversi_na.kode_mk && nilai.nim=mahasiswa.nim && nilai.kode_mk=matakuliah.kode_mk"
-                    + "&& matakuliah.kode_mk='"+key+"';";
+                    + "&& matakuliah.kode_mk='"+key+"' ORDER BY nim ASC;";
+            }else if(SORT == "NAMA"){
+                sql= "select nilai.nim,nama,nama_mk,nilai.tugas,nilai.kuis,nilai.praktikum,nilai.tubes,nilai.uts,nilai.uas,"
+                    + "nilai.tambahan,na,grade from konversi_na join nilai join mahasiswa join matakuliah where nilai.nim=konversi_na.nim "
+                    + "&& nilai.kode_mk=konversi_na.kode_mk && nilai.nim=mahasiswa.nim && nilai.kode_mk=matakuliah.kode_mk"
+                    + "&& matakuliah.kode_mk='"+key+"' ORDER BY nama ASC;";
+            }else if(SORT == "GRADE"){
+                sql= "select nilai.nim,nama,nama_mk,nilai.tugas,nilai.kuis,nilai.praktikum,nilai.tubes,nilai.uts,nilai.uas,"
+                    + "nilai.tambahan,na,grade from konversi_na join nilai join mahasiswa join matakuliah where nilai.nim=konversi_na.nim "
+                    + "&& nilai.kode_mk=konversi_na.kode_mk && nilai.nim=mahasiswa.nim && nilai.kode_mk=matakuliah.kode_mk"
+                    + "&& matakuliah.kode_mk='"+key+"' ORDER BY GRADE ASC;";
+            }else if(SORT == "Nilai Akhir"){
+                sql= "select nilai.nim,nama,nama_mk,nilai.tugas,nilai.kuis,nilai.praktikum,nilai.tubes,nilai.uts,nilai.uas,"
+                    + "nilai.tambahan,na,grade from konversi_na join nilai join mahasiswa join matakuliah where nilai.nim=konversi_na.nim "
+                    + "&& nilai.kode_mk=konversi_na.kode_mk && nilai.nim=mahasiswa.nim && nilai.kode_mk=matakuliah.kode_mk"
+                    + "&& matakuliah.kode_mk='"+key+"' ORDER BY na DESC;";
+            }
+            
+            Statement stat = (Statement) conek.GetConnection().createStatement( );
             ResultSet res   = stat.executeQuery(sql);
             while(res.next ()){
                 Object[ ] obj = new Object[11];
@@ -60,23 +78,29 @@ public class TableNilai {
     
         try{
             Statement stat = (Statement) conek.GetConnection().createStatement( );
-            String sql        = "select mahasiswa.nim,nama,tugas,kuis,praktikum,tubes,uts,uas,tambahan from mahasiswa join nilai WHERE mahasiswa.nim=nilai.nim && mahasiswa.nim=nilai.nim &&"
-                + "(nilai.nim LIKE '%"+key+"%'"
-                + "|| nama LIKE '%"+key+"%')"    
-                + "&& nilai.kode_mk LIKE '%"+mk+"%' ;";
+            String sql= "select nilai.nim,nama,nama_mk,nilai.tugas,nilai.kuis,nilai.praktikum,nilai.tubes,nilai.uts,nilai.uas,"
+                    + "nilai.tambahan,na,grade from konversi_na join nilai join mahasiswa join matakuliah where nilai.nim=konversi_na.nim "
+                    + "&& nilai.kode_mk=konversi_na.kode_mk && nilai.nim=mahasiswa.nim && nilai.kode_mk=matakuliah.kode_mk"
+                    + "&& matakuliah.kode_mk='"+mk+"' && " + "(nilai.nim LIKE '%"+key+"%'"+ "|| nama LIKE '%"+key+"%');" ;
+//            String sql        = "select mahasiswa.nim,nama,tugas,kuis,praktikum,tubes,uts,uas,tambahan from mahasiswa join nilai WHERE mahasiswa.nim=nilai.nim && mahasiswa.nim=nilai.nim &&"
+//                + "(nilai.nim LIKE '%"+key+"%'"
+//                + "|| nama LIKE '%"+key+"%')"    
+//                + "&& nilai.kode_mk LIKE '%"+mk+"%' ;";
             ResultSet res   = stat.executeQuery(sql);
 
             while(res.next ()){
-                Object[ ] obj = new Object[9];
-                obj[0] = res.getString("mahasiswa.NIM"); 
-                obj[1] = res.getString("Nama");
-                obj[2] = res.getString("Tugas"); 
-                obj[3] = res.getString("Kuis");
-                obj[4] = res.getString("Praktikum"); 
-                obj[5] = res.getString("Tubes");
-                obj[6] = res.getString("UTS"); 
-                obj[7] = res.getString("UAS");
-                obj[8] = res.getString("Tambahan"); 
+                Object[ ] obj = new Object[11];
+                obj[0] = res.getString("nilai.nim"); 
+                obj[1] = res.getString("nama");                
+                obj[2] = res.getString("nilai.tugas");
+                obj[3] = res.getString("nilai.kuis"); 
+                obj[4] = res.getString("nilai.praktikum");
+                obj[5] = res.getString("nilai.tubes"); 
+                obj[6] = res.getString("nilai.uts");
+                obj[7] = res.getString("nilai.uas"); 
+                obj[8] = res.getString("nilai.tambahan"); 
+                obj[9] = res.getString("na"); 
+                obj[10] = res.getString("grade"); 
                 model.addRow(obj);
             }
         }catch(SQLException err){
@@ -99,12 +123,12 @@ public class TableNilai {
     public final void getKlik2(){
         try{
             
-            String sql = "update konversi_na join index_nilai set grade ='A' where na>index_nilai.A && konversi_na.kode_mk=index_nilai.kode_mk; ";
-            String sql2 = "update konversi_na join index_nilai set grade ='AB' where na>index_nilai.AB && na<index_nilai.A && konversi_na.kode_mk=index_nilai.kode_mk; ";
-            String sql3 = "update konversi_na join index_nilai set grade ='B' where na>index_nilai.B && na<index_nilai.AB && konversi_na.kode_mk=index_nilai.kode_mk; ";
-            String sql4 = "update konversi_na join index_nilai set grade ='BC' where na>index_nilai.BC && na<index_nilai.B && konversi_na.kode_mk=index_nilai.kode_mk; ";
-            String sql5 = "update konversi_na join index_nilai set grade ='C' where na>index_nilai.C && na<index_nilai.BC && konversi_na.kode_mk=index_nilai.kode_mk; ";
-            String sql6 = "update konversi_na join index_nilai set grade ='D' where na>index_nilai.D && na<index_nilai.C && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql = "update konversi_na join index_nilai set grade ='A' where na>=index_nilai.A && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql2 = "update konversi_na join index_nilai set grade ='AB' where na>=index_nilai.AB && na<index_nilai.A && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql3 = "update konversi_na join index_nilai set grade ='B' where na>=index_nilai.B && na<index_nilai.AB && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql4 = "update konversi_na join index_nilai set grade ='BC' where na>=index_nilai.BC && na<index_nilai.B && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql5 = "update konversi_na join index_nilai set grade ='C' where na>=index_nilai.C && na<index_nilai.BC && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql6 = "update konversi_na join index_nilai set grade ='D' where na>=index_nilai.D && na<index_nilai.C && konversi_na.kode_mk=index_nilai.kode_mk; ";
             String sql7 = "update konversi_na join index_nilai set grade ='E' where na<index_nilai.D && konversi_na.kode_mk=index_nilai.kode_mk; ";
                     
             java.sql.Connection conn = (Connection)conek.GetConnection();

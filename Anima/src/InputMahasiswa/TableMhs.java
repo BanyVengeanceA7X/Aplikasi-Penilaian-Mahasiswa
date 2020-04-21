@@ -27,11 +27,17 @@ public class TableMhs {
         model.addColumn("UAS");
         model.addColumn("Tambahan");
     }
-    public final void getDataMhs(String key){
+    public final void getDataMhs(String key, String SORT){
         try{
+            String sql = null;
+            if(SORT == "NIM"){
+                sql= "select mahasiswa.nim,nama,tugas,kuis,praktikum,tubes,uts,uas,tambahan from mahasiswa join nilai WHERE mahasiswa.nim=nilai.nim && "
+                    + "mahasiswa.nim=nilai.nim && nilai.kode_mk='"+key+"' ORDER BY nim ASC;";
+            }else if(SORT == "NAMA"){
+                sql= "select mahasiswa.nim,nama,tugas,kuis,praktikum,tubes,uts,uas,tambahan from mahasiswa join nilai WHERE mahasiswa.nim=nilai.nim && "
+                    + "mahasiswa.nim=nilai.nim && nilai.kode_mk='"+key+"' ORDER BY nama ASC;";
+            }
             Statement stat = (Statement) conek.GetConnection().createStatement( );
-            String sql= "select mahasiswa.nim,nama,tugas,kuis,praktikum,tubes,uts,uas,tambahan from mahasiswa join nilai WHERE mahasiswa.nim=nilai.nim && "
-                    + "mahasiswa.nim=nilai.nim && nilai.kode_mk='"+key+"'";
             ResultSet res   = stat.executeQuery(sql);
             while(res.next ()){
                 Object[ ] obj = new Object[9];
