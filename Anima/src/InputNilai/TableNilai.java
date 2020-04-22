@@ -82,10 +82,7 @@ public class TableNilai {
                     + "nilai.tambahan,na,grade from konversi_na join nilai join mahasiswa join matakuliah where nilai.nim=konversi_na.nim "
                     + "&& nilai.kode_mk=konversi_na.kode_mk && nilai.nim=mahasiswa.nim && nilai.kode_mk=matakuliah.kode_mk"
                     + "&& matakuliah.kode_mk='"+mk+"' && " + "(nilai.nim LIKE '%"+key+"%'"+ "|| nama LIKE '%"+key+"%');" ;
-//            String sql        = "select mahasiswa.nim,nama,tugas,kuis,praktikum,tubes,uts,uas,tambahan from mahasiswa join nilai WHERE mahasiswa.nim=nilai.nim && mahasiswa.nim=nilai.nim &&"
-//                + "(nilai.nim LIKE '%"+key+"%'"
-//                + "|| nama LIKE '%"+key+"%')"    
-//                + "&& nilai.kode_mk LIKE '%"+mk+"%' ;";
+
             ResultSet res   = stat.executeQuery(sql);
 
             while(res.next ()){
@@ -110,26 +107,34 @@ public class TableNilai {
     
     public final void getKlik(){
         try{
-            
-            String sql = "update konversi_na join nilai join komponen set na = (nilai.tugas*komponen.tugas*0.01)+(nilai.kuis*komponen.kuis*0.01)+(nilai.uts*komponen.uts*0.01)+(nilai.uas*komponen.uas*0.01)+(nilai.praktikum*komponen.praktikum*0.01)+(nilai.tambahan*komponen.tambahan*0.01)+(nilai.tubes*komponen.tubes*0.01) where konversi_na.nim=nilai.nim && konversi_na.kode_mk=nilai.kode_mk && konversi_na.kode_mk = komponen.kode_mk;";
+            String sql = "update konversi_na join nilai join komponen set na = (nilai.tugas*komponen.tugas*0.01)+"
+                    + "(nilai.kuis*komponen.kuis*0.01)+(nilai.uts*komponen.uts*0.01)+(nilai.uas*komponen.uas*0.01)+"
+                    + "(nilai.praktikum*komponen.praktikum*0.01)+(nilai.tambahan*komponen.tambahan*0.01)+"
+                    + "(nilai.tubes*komponen.tubes*0.01) where konversi_na.nim=nilai.nim && konversi_na.kode_mk=nilai.kode_mk "
+                    + "&& konversi_na.kode_mk = komponen.kode_mk;";
             java.sql.Connection conn = (Connection)conek.GetConnection();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);
-            pst.execute();
-           
+            pst.execute();           
         }catch(SQLException err){
             JOptionPane.showMessageDialog(null, err.getMessage() );
         }
     } 
     public final void getKlik2(){
-        try{
-            
-            String sql = "update konversi_na join index_nilai set grade ='A' where na>=index_nilai.A && konversi_na.kode_mk=index_nilai.kode_mk; ";
-            String sql2 = "update konversi_na join index_nilai set grade ='AB' where na>=index_nilai.AB && na<index_nilai.A && konversi_na.kode_mk=index_nilai.kode_mk; ";
-            String sql3 = "update konversi_na join index_nilai set grade ='B' where na>=index_nilai.B && na<index_nilai.AB && konversi_na.kode_mk=index_nilai.kode_mk; ";
-            String sql4 = "update konversi_na join index_nilai set grade ='BC' where na>=index_nilai.BC && na<index_nilai.B && konversi_na.kode_mk=index_nilai.kode_mk; ";
-            String sql5 = "update konversi_na join index_nilai set grade ='C' where na>=index_nilai.C && na<index_nilai.BC && konversi_na.kode_mk=index_nilai.kode_mk; ";
-            String sql6 = "update konversi_na join index_nilai set grade ='D' where na>=index_nilai.D && na<index_nilai.C && konversi_na.kode_mk=index_nilai.kode_mk; ";
-            String sql7 = "update konversi_na join index_nilai set grade ='E' where na<index_nilai.D && konversi_na.kode_mk=index_nilai.kode_mk; ";
+        try{            
+            String sql = "update konversi_na join index_nilai set grade ='A' where na>=index_nilai.A && "
+                    + "konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql2 = "update konversi_na join index_nilai set grade ='AB' where na>=index_nilai.AB && "
+                    + "na<index_nilai.A && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql3 = "update konversi_na join index_nilai set grade ='B' where na>=index_nilai.B && "
+                    + "na<index_nilai.AB && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql4 = "update konversi_na join index_nilai set grade ='BC' where na>=index_nilai.BC && "
+                    + "na<index_nilai.B && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql5 = "update konversi_na join index_nilai set grade ='C' where na>=index_nilai.C && "
+                    + "na<index_nilai.BC && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql6 = "update konversi_na join index_nilai set grade ='D' where na>=index_nilai.D && "
+                    + "na<index_nilai.C && konversi_na.kode_mk=index_nilai.kode_mk; ";
+            String sql7 = "update konversi_na join index_nilai set grade ='E' where na<index_nilai.D && "
+                    + "konversi_na.kode_mk=index_nilai.kode_mk; ";
                     
             java.sql.Connection conn = (Connection)conek.GetConnection();
             java.sql.PreparedStatement pst = conn.prepareStatement(sql);

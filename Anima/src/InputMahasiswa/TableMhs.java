@@ -60,7 +60,8 @@ public class TableMhs {
     
         try{
             Statement stat = (Statement) conek.GetConnection().createStatement( );
-            String sql        = "select mahasiswa.nim,nama,tugas,kuis,praktikum,tubes,uts,uas,tambahan from mahasiswa join nilai WHERE mahasiswa.nim=nilai.nim && mahasiswa.nim=nilai.nim &&"
+            String sql        = "select mahasiswa.nim,nama,tugas,kuis,praktikum,tubes,uts,uas,tambahan "
+                    + "from mahasiswa join nilai WHERE mahasiswa.nim=nilai.nim && mahasiswa.nim=nilai.nim &&"
                 + "(nilai.nim LIKE '%"+key+"%'"
                 + "|| nama LIKE '%"+key+"%')"    
                 + "&& nilai.kode_mk LIKE '%"+mk+"%' ;";

@@ -106,10 +106,6 @@ public class app_upt extends javax.swing.JFrame {
     
     public app_upt() {
         initComponents();
-//        setModel();
-//        pilihmatkul.setModel(model1);
-//        pilihmatkul1.setModel(model1);
-//        pilihmatkul2.setModel(model1);
     }
 
     /**
@@ -149,7 +145,6 @@ public class app_upt extends javax.swing.JFrame {
         kepalapanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Laman = new javax.swing.JPanel();
         HalamanAwal = new javax.swing.JPanel();
@@ -756,14 +751,6 @@ public class app_upt extends javax.swing.JFrame {
             }
         });
         kepalapanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 9, -1, -1));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon_laman_mk/green.png"))); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
-            }
-        });
-        kepalapanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 9, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
         jLabel7.setText("Aplikasi Penilaian Mahasiswa (ANIMA)");
@@ -3643,11 +3630,6 @@ public class app_upt extends javax.swing.JFrame {
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        JOptionPane.showMessageDialog(rootPane, "Untuk saat ini, fitur tersebut belum dapat digunakan", "warning", 0);
-
-    }//GEN-LAST:event_jLabel4MouseClicked
-
     private void kepalapanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kepalapanelMouseDragged
         int kordinatX = evt.getXOnScreen();
         int kordinatY = evt.getYOnScreen();
@@ -3741,6 +3723,8 @@ public class app_upt extends javax.swing.JFrame {
         laman_nilai.setVisible(false);
         laman_matkul.setVisible(false);
         laman_grafik.setVisible(false);
+        pilihmatkul1.removeAllItems();
+        pilihmatkul2.removeAllItems();
         pilihmatkul.removeAllItems();
         setModel();
         if(model1.getSize()==0){
@@ -3790,18 +3774,23 @@ public class app_upt extends javax.swing.JFrame {
             String user="root";//disesuaikan
             String pass="";//disesuaikan
             Connection koneksi = DriverManager.getConnection(url,user,pass);
-
+            Statement st0 = koneksi.createStatement();
+            ResultSet rs0 = st0.executeQuery("select kode_mk,nama_mk from matakuliah WHERE kode_mk='"+pilihmatkul.getSelectedItem().toString()+"';");
             Statement st = koneksi.createStatement();
             ResultSet rs = st.executeQuery("select kode_mk,nama_mk from matakuliah WHERE kode_mk='"+pilihmatkul1.getSelectedItem().toString()+"';");
             while(rs.next()){
-                String A = rs.getString("nama_mk");
-                COBA.setText(A);
+                String A = rs.getString("nama_mk");                
                 COBA1.setText(A);
+            }
+            while(rs0.next()){
+                String A = rs0.getString("nama_mk");                
+                COBA.setText(A);
             }
         } catch (Exception e) {
             System.out.println("gagal");
         }
     }
+    
     private void input_mhs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_mhs2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_input_mhs2ActionPerformed
@@ -3834,10 +3823,16 @@ public class app_upt extends javax.swing.JFrame {
                 pilihmatkul.getSelectedItem().toString()
             )
         );
-        if(ps.validasiData()){
+        String nama = input_namamhs.getText();
+        String NIM = input_nim1.getText();
+        if(ps.validasiData() && !nama.matches(".*[1-9].*") && !NIM.matches(".*[A-Za-z].*")){
             if(ps.getDaftar1()!=-1 && ps.getDaftar2()!=-1){
                 JOptionPane.showMessageDialog(null, "Berhasil ditambahkan");
             }
+        }else if(nama.matches(".*[1-9].*")){
+            JOptionPane.showMessageDialog(null, "Nama tidak boleh mengandung angka");
+        }else if(NIM.matches(".*[A-Za-z].*")){
+            JOptionPane.showMessageDialog(null, "NIM tidak boleh mengandung huruf");
         }
         TableMhs a = new TableMhs(tablemhs);
         lebarKolomMhs();
@@ -3863,33 +3858,29 @@ public class app_upt extends javax.swing.JFrame {
             if(!cari.isEmpty()){
                 eror=1;
             }
-//            if(input_nilaimhs.getText().trim().isEmpty() && input_mhs2.getText().trim().isEmpty()){
-//                JOptionPane.showMessageDialog(null, "Inputan NIM dan Nilai kosong!", "Data Tidak Tersimpan",2);
-//            }
-//            else{
-//                if(input_mhs2.getText().trim().isEmpty()){       
-//                    JOptionPane.showMessageDialog(null, "Inputan NIM kosong!", "Data Tidak Tersimpan",2);
-//                }
-//                if(input_nilaimhs.getText().trim().isEmpty()){
-//                    JOptionPane.showMessageDialog(null, "Inputan Nilai kosong!", "Data Tidak Tersimpan",2);
-//                }
-//            }
             
         }catch(ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException | HeadlessException ex){
             //JOptionPane.showMessageDialog(null, "Terdapat Kesalahan");
         }
+        String ambil = input_nilaimhs.getText();
         
-        if(komponenmhs.isEnabled()&& !input_mhs2.getText().trim().isEmpty() && !input_nilaimhs.getText().trim().isEmpty()&&eror==1 ){
-            TableMhs a = new TableMhs(tablemhs);
-            a.getUpdateNilai(input_mhs2.getText(),komponenmhs.getSelectedItem().toString(),input_nilaimhs.getText(),pilihmatkul.getSelectedItem().toString() );
-            lebarKolomMhs();
-            
-            a.getDataMhs(pilihmatkul.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
-            input_mhs2.setText("");
-            input_nilaimhs.setText("");
+        if(komponenmhs.isEnabled()&& !input_mhs2.getText().isEmpty() && !input_nilaimhs.getText().isEmpty()&&eror==1 ){
+            Float nilai = Float.parseFloat(ambil);
+            if( nilai>=0 && nilai<=100){
+                TableMhs a = new TableMhs(tablemhs);
+                a.getUpdateNilai(input_mhs2.getText(),komponenmhs.getSelectedItem().toString(),input_nilaimhs.getText(),pilihmatkul.getSelectedItem().toString() );
+                lebarKolomMhs();
+
+                a.getDataMhs(pilihmatkul.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
+                input_mhs2.setText("");
+                input_nilaimhs.setText("");
+            }else{
+                JOptionPane.showMessageDialog(null, "Nilai yang anda masukkan tidak sesuai!" );
+            }       
         }else  {
-            JOptionPane.showMessageDialog(null, "Update Data salah, periksa NIM yang dimasukkan" );
+            JOptionPane.showMessageDialog(null, "Update Data salah, periksa NIM dan Nilai yang dimasukkan" );
         }
+        
         
     }//GEN-LAST:event_btsave_nilaiMouseClicked
 
@@ -4044,6 +4035,8 @@ public class app_upt extends javax.swing.JFrame {
         konten_nilai.setVisible(true);
         konten_pdf.setVisible(false);
         pilihmatkul1.removeAllItems();
+        pilihmatkul2.removeAllItems();
+        pilihmatkul.removeAllItems();
         setModel();
         if(model1.getSize()==0){
             
@@ -4058,10 +4051,6 @@ public class app_upt extends javax.swing.JFrame {
         a.getKlik2();
         a.getData(pilihmatkul1.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
     }//GEN-LAST:event_menu_lihatnilaiMouseClicked
-
-    private void pilihmatkulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihmatkulActionPerformed
-
-    }//GEN-LAST:event_pilihmatkulActionPerformed
 
     private void iconcariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconcariMouseClicked
         setText();
@@ -4087,15 +4076,40 @@ public class app_upt extends javax.swing.JFrame {
                 input_namamhs1.getText()
             )
         );
-        if(ps.validasiData()){
-            if(ps.getDaftar()!=-1){
-                JOptionPane.showMessageDialog(null, "Berhasil ditambahkan");
+        String cari;
+        int eror = 0;
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/anima", "root", "");
+            Statement stat = conn.createStatement();
+            String sql="select * from mahasiswa where "+ "nim='" +input_nim2.getText()+"'" ;
+            ResultSet R = stat.executeQuery(sql); 
+            
+            if(!input_nim2.getText().trim().isEmpty() && R.next()){
+                cari = R.getString(1);       
+                eror = 1;
+                
+            }
+        }catch(ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException | HeadlessException ex){            
+        }
+        String nama = input_namamhs1.getText();
+        String NIM = input_nim2.getText();
+        if(ps.validasiData()&& !nama.matches(".*[1-9].*") && !NIM.matches(".*[A-Za-z].*")){
+            if(eror!=1){
+                if(NIM.length()>=8 && NIM.length()<=10){
+                    if(ps.getDaftar()!=-1){
+                        JOptionPane.showMessageDialog(null, "Berhasil ditambahkan");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "NIM yang dapat diterima sepanjang 8 - 10 karakter");
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "NIM sudah terdapat didalam data. Harap input Data baru.","Duplikat",JOptionPane.WARNING_MESSAGE);
             }
         }else{
             ps.Pesan("Data Tidak Valid!");
         }
         Tablemhssemua a = new Tablemhssemua(tablemhs1);
-        //lebarKolomMhs();
         a.getData();
         input_namamhs1.setText("");
         input_nim2.setText("");
@@ -4141,13 +4155,33 @@ public class app_upt extends javax.swing.JFrame {
     }//GEN-LAST:event_input_namamhs1ActionPerformed
 
     private void DELETE_mhs4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETE_mhs4MouseClicked
-        Tablemhssemua a = new Tablemhssemua(tablemhs1);
-        if(!input_nim3.getText().isEmpty()){
-            a.getHapus(input_nim3.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Tidak ada data yang dipilih");
+        Connection conn;
+        Statement stat;
+        String cari;
+        int eror=0;
+        try{
+            Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/anima", "root", "");
+            stat = conn.createStatement();
+            String sql="select * from mahasiswa where "+ "nim='" +input_nim3.getText();
+            ResultSet R = stat.executeQuery(sql); 
+            
+            R.next();
+            cari = R.getString(1);
+            if(!cari.isEmpty()){
+                eror=1;
+            }
+
+        }catch(ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException | HeadlessException ex){        
         }
-        a.getData();
+        
+        if(!input_nim3.getText().isEmpty() && eror==1){
+            Tablemhssemua a = new Tablemhssemua(tablemhs1);
+            a.getHapus(input_nim3.getText());
+            a.getData();                       
+        }else{
+            JOptionPane.showMessageDialog(null, "Data yang ingin dihapus tidak ditemukan" );
+        }
         input_namamhs2.setText("");
         input_nim3.setText("");
     }//GEN-LAST:event_DELETE_mhs4MouseClicked
@@ -4417,13 +4451,21 @@ public class app_upt extends javax.swing.JFrame {
     }//GEN-LAST:event_DELETE_mhs5MouseClicked
 
     private void UPDATE_mhs3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UPDATE_mhs3MouseClicked
-        Tablemhssemua a = new Tablemhssemua(tablemhs1);
-        if(!input_namamhs2.getText().isEmpty()&& !input_nim3.getText().isEmpty()){
-            a.getUpdate(input_namamhs2.getText(), input_nim3.getText());
-        }else{
-            JOptionPane.showMessageDialog(null, "Data tidak berubah");
+
+        String nama = input_namamhs2.getText();
+        String NIM = input_nim3.getText();
+        if(!nama.matches(".*[1-9].*") && !NIM.matches(".*[A-Za-z].*")){            
+            if(!input_namamhs2.getText().isEmpty()&& !input_nim3.getText().isEmpty() ){
+                Tablemhssemua a = new Tablemhssemua(tablemhs1);
+                a.getUpdate(input_namamhs2.getText(), input_nim3.getText());
+                a.getData();
+            }else{
+                JOptionPane.showMessageDialog(null, "Data tidak berubah");
+            }
+        }else if(nama.matches(".*[1-9].*") || NIM.matches(".*[A-Za-z].*")){
+            JOptionPane.showMessageDialog(null, "Data yang dimasukkan tidak valid");
         }
-        a.getData();
+        
         input_namamhs2.setText("");
         input_nim3.setText("");
     }//GEN-LAST:event_UPDATE_mhs3MouseClicked
@@ -4602,7 +4644,9 @@ public class app_upt extends javax.swing.JFrame {
         tabel.setVisible(false);
         show_komponen.setVisible(false);
         laman_grafik.setVisible(true);
+        pilihmatkul1.removeAllItems();
         pilihmatkul2.removeAllItems();
+        pilihmatkul.removeAllItems();
         setModel();
         if(model1.getSize()==0){
         }else if(model1.getSize()>0){
@@ -4710,6 +4754,10 @@ public class app_upt extends javax.swing.JFrame {
         sorting1.getSelectedItem().toString();
         a.getDataMhs(pilihmatkul.getSelectedItem().toString(), sorting1.getSelectedItem().toString());
     }//GEN-LAST:event_sorting1ItemStateChanged
+
+    private void pilihmatkulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilihmatkulActionPerformed
+
+    }//GEN-LAST:event_pilihmatkulActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4956,7 +5004,6 @@ public class app_upt extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
