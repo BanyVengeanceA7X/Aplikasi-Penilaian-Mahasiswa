@@ -11,8 +11,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class TableNilai {
 
-    private final DefaultTableModel model;
-
+    private final DefaultTableModel model;    
+    
     public TableNilai(JTable apa){ 
         model = new DefaultTableModel ( );
         apa.setModel(model);
@@ -28,6 +28,7 @@ public class TableNilai {
         model.addColumn("Nilai Akhir");
         model.addColumn("Grade");
     }
+
     public final void getData(String key, String SORT){
         try{
             String sql = null;

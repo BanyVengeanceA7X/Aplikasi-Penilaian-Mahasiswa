@@ -32,10 +32,10 @@ public class TableMhs {
             String sql = null;
             if(SORT == "NIM"){
                 sql= "select mahasiswa.nim,nama,tugas,kuis,praktikum,tubes,uts,uas,tambahan from mahasiswa join nilai WHERE mahasiswa.nim=nilai.nim && "
-                    + "mahasiswa.nim=nilai.nim && nilai.kode_mk='"+key+"' ORDER BY nim ASC;";
+                    + "nilai.kode_mk='"+key+"' ORDER BY nim ASC;";
             }else if(SORT == "NAMA"){
                 sql= "select mahasiswa.nim,nama,tugas,kuis,praktikum,tubes,uts,uas,tambahan from mahasiswa join nilai WHERE mahasiswa.nim=nilai.nim && "
-                    + "mahasiswa.nim=nilai.nim && nilai.kode_mk='"+key+"' ORDER BY nama ASC;";
+                    + "nilai.kode_mk='"+key+"' ORDER BY nama ASC;";
             }
             Statement stat = (Statement) conek.GetConnection().createStatement( );
             ResultSet res   = stat.executeQuery(sql);
@@ -89,9 +89,13 @@ public class TableMhs {
     
         try{
             Statement stat = (Statement) conek.GetConnection().createStatement( );
+            Statement stat2 = (Statement) conek.GetConnection().createStatement( );
             String sql     = "DELETE FROM nilai "
                             +" where nim = '"+nim+"'&& kode_mk='"+key+"';";
+            String sql2     = "DELETE FROM KONVERSI_NA "
+                            +" where nim = '"+nim+"'&& kode_mk='"+key+"';";
             stat.executeUpdate(sql);
+            stat2.executeUpdate(sql2);
  
         }catch(SQLException err){
             JOptionPane.showMessageDialog(null, err.getMessage() );

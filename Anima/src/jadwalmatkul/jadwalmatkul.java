@@ -47,30 +47,4 @@ public class jadwalmatkul {
         }
     } 
     
-    public final void getHapus(String key ){
-    
-        try{
-            Statement stat = (Statement) conek.GetConnection().createStatement( );
-            String sql     = "DELETE FROM buku WHERE kodebuku = '"+key+"';";
-            stat.executeUpdate(sql);
- 
-        }catch(SQLException err){
-            JOptionPane.showMessageDialog(null, err.getMessage() );
-        }
-    } 
-    public final void getUpdate(String kode,String Judul,String Pengarang,String Penerbit,String tahun){
-        try{
-            
-            String sql = "UPDATE buku SET judulbuku= '"+Judul+"',pengarang= '"+Pengarang
-                    +"',penerbit= '"+Penerbit+"',tahunterbit= '"+tahun+"' where kodebuku = '"+kode+"';";
-            java.sql.Connection conn = (Connection)conek.GetConnection();
-            java.sql.PreparedStatement pst = conn.prepareStatement(sql);
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "data berhasil di update");
-
-        }catch(SQLException err){
-            JOptionPane.showMessageDialog(null, err.getMessage() );
-        }
-    } 
-    
 }
