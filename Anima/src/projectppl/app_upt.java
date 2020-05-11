@@ -3573,6 +3573,7 @@ public class app_upt extends javax.swing.JFrame {
         laman_nilai.setVisible(false);
         HalamanAwal.setVisible(false);
         laman_mahasiswa.setVisible(false);
+        laman_mahasiswa1.setVisible(false);
         fresh_open.setVisible(false);
         tabel.setVisible(true);
         show_komponen.setVisible(false);
@@ -3590,7 +3591,7 @@ public class app_upt extends javax.swing.JFrame {
         laman_nilai.setVisible(false);
         laman_matkul.setVisible(false);
         laman_grafik.setVisible(false);
-        
+        laman_mahasiswa1.setVisible(false);
         Connection conn;
         Statement stat;
         String cari;
@@ -4030,7 +4031,9 @@ public class app_upt extends javax.swing.JFrame {
         laman_jadwal.setVisible(true);
         HalamanAwal.setVisible(false);
         laman_mahasiswa.setVisible(false);
+        laman_mahasiswa1.setVisible(false);
         laman_grafik.setVisible(false);
+        laman_nilai.setVisible(false);
         jadwalmatkul a = new jadwalmatkul(tablejadwal);
         lebarKolom();
         a.getData();
